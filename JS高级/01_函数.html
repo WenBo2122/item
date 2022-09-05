@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建函数1
+        function fn1() {
+            console.log('fn1')
+        }
+        // 字面量定义函数2
+        let fn2 = function () {
+            console.log('fn2')
+        }
+        // 箭头函数3
+        let fn3 = () => {
+            console.log('fn3')
+        }
+        // new Object()
+        // new Array()
+        // new RegExp()
+        // new Date()
+        // 实例化4 除最后一个字符串是程序，其他都是参数
+        let fn4 = new Function('a', 'b', 'console.log(a+b)')
+
+        fn4(2, 3)
+        // 对象的方法5
+        let obj = {
+            fn5: function () {
+                console.log('fn5')
+            },
+            fn6: () => {
+                console.log('fn6')
+            },
+            // 对象的方法可以简写
+            fn7() {
+                console.log('fn7')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

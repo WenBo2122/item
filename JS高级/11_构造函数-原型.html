@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 父对象
+      function CreateAnimal(type) {
+        this.type = type;
+        // this.move = function () {//公共的方法，创建在构造函数内，是多余的
+        //     console.log(this.type + '会动')
+        // }
+      }
+
+      // 构造函数的原型 原型是对象  原型对象添加的方法可以共享给所有的实例化对象
+      CreateAnimal.prototype.move = function () {
+        console.log(this.type + "会动");
+      };
+
+      CreateAnimal.prototype.fn = function () {
+        console.log("fn");
+      };
+      CreateAnimal.prototype.fn1 = function () {
+        console.log("fn1");
+      };
+
+      // 子对象
+      let dog = new CreateAnimal("狗");
+      let cat = new CreateAnimal("猫");
+
+      console.log(dog);
+      console.log(cat);
+
+      // 所有的对象都有原型 实例化对象的原型__proto__ 实例化对象的原型都指向构造这个对象的构造函数的原型
+      console.log(dog.__proto__);
+      console.log(cat.__proto__);
+
+      console.log(dog.__proto__ == cat.__proto__); //true
+      console.log(dog.__proto__ == CreateAnimal.prototype); //true
+
+      dog.move();
+      cat.move();
+
+      // 访问实例化对象原型的构造器，获取父对象是谁
+      console.dir(dog.__proto__.constructor);
+
+      // 以往的构造函数  [构造器constructor]
+      let obj = new Object();
+      let fn = new Function();
+      let arr = new Array();
+      let date = new Date();
+      let reg = new RegExp();
+      // ...
+
+      arr.push();
+    </script>
+  </body>
+</html>

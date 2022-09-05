@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面向对象时钟</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- <div class="outer">
+      <div class="inner">
+        <div class="box">
+          <div class="num"><span>1</span></div>
+          <div class="num"><span>2</span></div>
+          <div class="num"><span>3</span></div>
+          <div class="num"><span>4</span></div>
+          <div class="num"><span>5</span></div>
+          <div class="num"><span>6</span></div>
+          <div class="num"><span>7</span></div>
+          <div class="num"><span>8</span></div>
+          <div class="num"><span>9</span></div>
+          <div class="num"><span>10</span></div>
+          <div class="num"><span>11</span></div>
+          <div class="num"><span>12</span></div>
+          <div class="dot"><span></span></div>
+          <div class="line second" style="transform: rotate(312deg)"><span></span></div>
+          <div class="line minute" style="transform: rotate(171.7deg)"><span></span></div>
+          <div class="line hour" style="transform: rotate(576.808deg)"><span></span></div>
+        </div>
+      </div>
+    </div> -->
+
+    <main id="main"></main>
+
+    <!-- js -->
+    <script>
+      // CreateOuter
+      function CreateOuter(classname, fatherBox) {
+        this.classname = classname;
+        this.fatherBox = fatherBox;
+      }
+
+      // 渲染方法
+      CreateOuter.prototype.render = function () {
+        let $div = document.createElement("div");
+        $div.className = this.classname;
+        this.fatherBox.append($div);
+      };
+
+      // CreateInner
+      function CreateInner(classname, fatherBox) {
+        CreateOuter.call(this, classname, fatherBox); // 构造函数继承
+      }
+      // 原型继承
+      CreateInner.prototype = Object.create(CreateOuter.prototype);
+      CreateInner.prototype.constructor = CreateInner;
+
+      // CreateBox
+      function CreateBox(classname, fatherBox) {
+        CreateInner.call(this, classname, fatherBox); // 构造函数继承
+      }
+      // 原型继承
+      CreateBox.prototype = Object.create(CreateInner.prototype);
+      CreateBox.prototype.constructor = CreateBox;
+
+      // CreateNum
+      function CreateNum(classname, fatherBox, num) {
+        CreateBox.call(this, classname, fatherBox); // 构造函数继承
+        this.num = num; // 继承后扩展自己独有的属性
+      }
+      // 原型继承 //因为方法不再需要所有 可选择不继承原型
+      CreateNum.prototype = Object.create(CreateBox.prototype);
+      CreateNum.prototype.constructor = CreateNum;
+      // 重写 render方法  <div class="num"><span>1</span></div>
+      CreateNum.prototype.render = function () {
+        let $div = document.createElement("div");
+        $div.className = this.classname;
+        $div.innerHTML = `<span>${this.num}</span>`;
+        this.fatherBox.append($div);
+      };
+
+      // CreateDot
+      function CreateDot(classname, fatherBox) {
+        CreateBox.call(this, classname, fatherBox); // 构造函数继承
+      }
+      // 原型继承
+      CreateDot.prototype = Object.create(CreateBox.prototype);
+      CreateDot.prototype.constructor = CreateDot;
+      // 重写 render方法  <div class="dot"><span></span></div>
+      CreateDot.prototype.render = function () {
+        let $div = document.createElement("div");
+        $div.className = this.classname;
+        $div.innerHTML = `<span></span>`;
+        this.fatherBox.append($div);
+      };
+
+      // CreateLine
+      function CreateLine(classname, fatherBox) {
+        CreateBox.call(this, classname, fatherBox); // 构造函数继承
+      }
+      // 原型继承
+      CreateLine.prototype = Object.create(CreateBox.prototype);
+      CreateLine.prototype.constructor = CreateLine;
+      // 重写 render方法  <div class="line second"><span></span></div>
+      CreateLine.prototype.render = function () {
+        let $div = document.createElement("div");
+        $div.className = this.classname;
+        $div.innerHTML = `<span></span>`;
+        this.fatherBox.append($div);
+      };
+
+      // 创建运动对象、时钟动起来
+      function CreateRun() {
+        this.h = h;
+        this.s = s;
+        this.m = m;
+      }
+
+      CreateRun.prototype.running = function () {
+        // 获取当前时间
+        let date = new Date();
+
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+
+        let sAngle = (360 / 60) * second + 90;
+        let mAngle = (360 / (60 * 60)) * (minute * 60 + second) + 90;
+        let hAngle = (360 / (60 * 60 * 12)) * (hour * 60 * 60 + minute * 60 + second) + 90;
+
+        this.h.style.tranform = `rotate(90deg)`;
+        this.m.style.tranform = `rotate(90deg)`;
+        this.s.style.tranform = `rotate(90deg)`;
+      };
+    </script>
+
+    <script>
+      // 创建outer盒子对象
+      let outerDiv = new CreateOuter("outer", document.getElementById("main"));
+      outerDiv.render();
+
+      // 创建inner盒子对象
+      let innerDiv = new CreateInner("inner", document.querySelector(".outer"));
+      innerDiv.render();
+
+      // 创建 box 盒子对象
+      let innerbox = new CreateBox("box", document.querySelector(".inner"));
+      innerbox.render();
+
+      // 创建 num 盒子对象
+      for (let i = 1; i <= 12; i++) {
+        let boxNum = new CreateNum("num", document.querySelector(".box"), i);
+        boxNum.render();
+      }
+
+      // 创建 dot 盒子对象
+      let boxDot = new CreateDot("dot", document.querySelector(".box"));
+      boxDot.render();
+
+      // 创建 line 盒子对象
+      let second = new CreateLine("line second", document.querySelector(".box"));
+      let minute = new CreateLine("line minute", document.querySelector(".box"));
+      let hour = new CreateLine("line hour", document.querySelector(".box"));
+      second.render();
+      minute.render();
+      hour.render();
+    </script>
+  </body>
+</html>

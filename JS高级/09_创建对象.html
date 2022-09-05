@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj1 = {}; // 字面量
+      let obj2 = new Object();
+
+      // 批量
+      function createAnimal(type, legs) {
+        let o = {};
+        o.type = type;
+        o.legs = legs;
+        o.wow = function () {
+          console.log("是" + this.type);
+        };
+        return o;
+      }
+
+      let dog = createAnimal("狗", 4);
+      let chicken = createAnimal("鸡", 2);
+      let snake = createAnimal("蛇", 0);
+
+      console.log(dog);
+      console.log(chicken);
+      console.log(snake);
+
+      // 构造函数 必须首字母大写 不需要 return 会自动返回 可以明确对象的来源
+      function CreatePerson(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sayYing = function () {
+          console.log("萌");
+        };
+      }
+
+      // 构造函数创建对象需要使用 new 关键字
+      let w = new CreatePerson("世界", "亿", "男");
+
+      console.log(w);
+
+      // new 关键字做了什么
+      // 1、构造函数内 创建一个对象
+      // 2、将函数this指向这个对象
+      // 3、最后自动将这个对象返回出去
+
+      // 类 ES6 新增
+      class Flower {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+
+      // 实例化类
+      let lanhua = new Flower("兰花", 1);
+      let rose = new Flower("玫瑰", 10);
+
+      console.log(lanhua);
+      console.log(rose);
+
+      console.log(typeof CreatePerson); //function
+      console.log(typeof Flower); // function
+
+      // js 中是没有类的概念的 ES6 新增 class 只是构造函数的语法糖 本质还是函数
+    </script>
+  </body>
+</html>

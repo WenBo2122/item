@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数体多余一个函数我们叫高阶函数
+        function fn1() {
+            console.log('fn1')
+            function fn2() {
+                console.log('fn2')
+            }
+            fn2()
+        }
+        fn1()
+        // 一个函数是作为另一个函数 的参数使用===>回调函数
+        function fn3(fun) {
+            fun()
+        }
+        fn3(function () { console.log('Hello') })
+        //sort()、forEach()、filter()、addEventListener()、数据请求、定时器
+
+        // 函数自己调用自己 ======》递归函数
+        function fn4() {
+            console.log('哈哈')
+            // fn4()
+        }
+        fn4()
+
+        // 实例 求斐波那契数列第n位是啥
+        function fbnq(n) {
+            if (n == 1 || n == 2) {
+                return 1
+            }
+            return fbnq(n - 1) + fbnq(n - 2)
+        }
+
+        console.log(fbnq(5))
+        console.log(fbnq(10))
+        console.log(fbnq(13))
+        // 递归程序特别耗性能
+        console.log(fbnq(40))
+
+        // 阶乘
+        function jc(m) {
+            if (m == 1) {
+                return 1
+            }
+            return m * jc(m - 1)
+        }
+
+        console.log(jc(3))
+        console.log(jc(5))
+        console.log(jc(10))
+
+        // 闭包 函数套函数，内部函数使用了外部函数的变量
+
+        function fn11() {
+            let a = 100
+            return function fn12() {
+                // console.log(a)
+                return a
+            }
+        }
+        // 作用：
+        // 0.保护变量不被全局污染
+        // 1.延长变量的生命周期，和使用范围
+        // 2.在作用域外访问局部变量
+
+        // 缺点
+        // 因为函数的数据不能被及时回收，可能造成内存泄漏
+
+
+        console.log(fn11())
+        console.log(fn11()());
+
+
+        // 匿名函数自调用  IIFE 立即调用函数表达式(Immediately Invoked Function Expression)
+        (function () {
+            console.log('abc')
+        })();
+
+    </script>
+</body>
+
+</html>

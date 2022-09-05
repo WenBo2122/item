@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: red;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="form1">
+      邮箱：<input type="text" id="email" />
+      <span class="hide"
+        >* 邮箱名称允许汉字、字母、数字、下划线，域名只允许英文域名</span
+      ><br />
+      手机：<input type="text" id="phone" />
+      <span class="hide">* 手机的格式：允许13、14、15、17，18开头的手机号</span
+      ><br />
+      账号：<input type="text" id="uname" />
+      <span class="hide">* 账号格式：包含数字，字母，下划线，长度在6-15</span
+      ><br />
+      密码：<input type="text" id="upwd" />
+      <span class="hide"
+        >* 密码格式：必须大写字母，小写字母，数字，长度在6-12</span
+      ><br />
+      <button>提交</button>
+    </form>
+
+    <script>
+      // 提交的时候验证
+      form1.onsubmit = function (e) {
+        e.preventDefault();
+        let emailV = email.value;
+        let phoneV = phone.value;
+        let unameV = uname.value;
+        let upwdV = upwd.value;
+
+        // 表单验证通过、在进行后续逻辑操作
+        // 邮箱验证
+        let emailReg = /^[\w\u4e00-\u9fa5]+@[a-zA-Z]+\.(com|on|org)$/;
+        if (!emailReg.test(emailV)) {
+          email.nextElementSibling.classList.remove("hide");
+          return;
+        } else {
+          email.nextElementSibling.classList.add("hide");
+        }
+
+        // 手机验证
+        let phoneReg = /^1(3|4|5|7|8|)\d{9}$/;
+        if (!phoneReg.test(phoneV)) {
+          phone.nextElementSibling.classList.remove("hide");
+          return;
+        } else {
+          phone.nextElementSibling.classList.add("hide");
+        }
+
+        // 账号验证
+        let unameReg = /^\w{6,15}$/;
+        if (!unameReg.test(unameV)) {
+          uname.nextElementSibling.classList.remove("hide");
+          return;
+        } else {
+          uname.nextElementSibling.classList.add("hide");
+        }
+
+        // 密码验证 ?=.*
+        let upwdReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\w{6,12}$/;
+        if (!upwdReg.test(upwdV)) {
+          upwd.nextElementSibling.classList.remove("hide");
+          return;
+        } else {
+          upwd.nextElementSibling.classList.add("hide");
+        }
+
+        // 拿到的数据与后台交互、实现功能
+        console.log("提交成功");
+      };
+    </script>
+  </body>
+</html>

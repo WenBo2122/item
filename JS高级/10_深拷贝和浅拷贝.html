@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: "张三",
+            age: 18
+        }
+        // 复制对象
+        var obj2 = obj1
+        // 浅拷贝
+        obj2.gender = "男"
+
+
+        console.log(obj1)
+        console.log(obj2)
+
+        // 新建对象
+        var obj3 = {}
+
+        // 深拷贝
+        for (let key in obj1) {
+            // console.log(obj1[key]);
+            obj3[key] = obj1[key]
+        }
+
+
+        obj3.hobby = '打代码'
+
+        console.log(obj3)
+
+
+        // 复杂对象
+        let mvObj = {
+            "pageNum": 1,
+            "pageSize": 20,
+            "totalCount": 29,
+            "list": [
+                {
+                    "id": 71,
+                    "videoName": "留什么给你 - 中国之星 现场版[超清版]",
+                    "videoDesc": "留什么给你 - 中国之星 现场版[超清版]",
+                    "artistName": "孙楠",
+                    "videoImg": "https://img.yinyuetai.com/img/26f2e979bfee4a93958ee0b6d98d26c4.png"
+                }
+            ]
+        }
+
+        let NewMv = {}
+        // 深拷贝
+        for (let key in mvObj) {
+            if (typeof mvObj[key] == 'object') {
+                if (Array.isArray(mvObj[key])) {
+                    let arr = []
+                    mvObj[key].forEach(item => {
+                        if (typeof item == "object") {
+                            // 判断是对象
+                            let newO = {}
+                            // 遍历
+                            for (let k in item) {
+                                newO[k] = item[k]
+                            }
+                            // console.log(newO)
+                            arr.push(newO)
+                        } else {
+                            arr.push(item)
+                        }
+
+                    })
+                    NewMv[key] = arr
+                }
+
+            } else {
+                NewMv[key] = mvObj[key]
+            }
+        }
+
+        NewMv.list.push(123)
+        NewMv.list[0].abcd = '1234'
+        console.log(NewMv)
+
+        console.log(mvObj)
+
+
+
+        // 深拷贝
+        let strObj = JSON.stringify(mvObj)//将对象转换成字符串【json字符串】
+        console.log(strObj)
+        console.log(typeof strObj)
+        let newMM = JSON.parse(strObj)//将字符串【json字符串】转换成对象
+        newMM.list.push(9999)
+        console.log(newMM)
+
+
+
+        console.log(JSON.parse(JSON.stringify(mvObj)));// 一行写完深拷贝
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+https://www.yinyuetai.com/
+
+制作音乐网页面，首页列表，及详情
+要求：fetch请求数据并渲染页面
+
+
+五个分类接口：
+
+内地
+	http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=1&pageNum=1&pageSize=20
+香港
+	http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=2&pageNum=1&pageSize=20
+台湾
+	http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=3&pageNum=1&pageSize=20
+日韩欧美
+	http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=4&pageNum=1&pageSize=20
+音悦V榜及自制
+	http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=5&pageNum=1&pageSize=20
+
+
+详情接口：
+http://192.168.211.135:3000/myapi/video/getVideoInfo?id=198
+http://192.168.211.135:3000/myapi/video/getRelatedVideoList?id=198
+
+id通过查询字符串从列表传递过来

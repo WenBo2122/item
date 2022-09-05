@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // call、applay、bind 异同
+      // 相同 ： 第一个参数可以改变this指向
+      // 不同 ： bind() 不会调用函数 apply()只有两个参数、第二个参数是函数参数组成的数组
+
+      function fn1() {
+        console.log(this);
+      }
+      fn1();
+
+      let obj = {
+        name: "Hello",
+      };
+
+      // 改变this指向 call、apply直接改变this bind生成新函数、使用需要重新调用
+      fn1.call(obj);
+      fn1.apply(obj);
+      fn1.bind(obj)(); //bind 会返回一个新函数
+
+      function fnAdd(a, b, c) {
+        console.log(a + b + c);
+        console.log(this);
+      }
+      // 带参 call bind 参数是无限个数 apply将参数集合到一个数组中
+      fnAdd(2, 3, 4);
+      fnAdd.call(obj, 2, 3, 4);
+      fnAdd.apply(obj, [2, 3, 4]);
+      fnAdd.bind(obj, 2, 3, 4)();
+
+      var arr = [3, 2, 6, 32, 675, 2, 8, 3]; // 求最大值
+      console.log(Math.max.apply(null, arr));
+    </script>
+  </body>
+</html>

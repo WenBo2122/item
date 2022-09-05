@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数基本语法
+        let fun1 = () => {
+            console.log('fun1')
+        }
+        fun1()
+        // 如果有一个参数,可以省略()
+        let fun2 = msg => {
+            console.log(msg)
+        }
+        fun2('hello')
+        // 多余一个参数，必须写()
+        let fun3 = (a, b) => {
+            console.log(a + b)
+        }
+        fun3(3, 4)
+        // 如果程序只有一行，可以省略{}。省略{}的语句不需要写return可自动返回值结果
+        // let fun4 = (a, b) => {
+        //     return a + b
+        // }
+        let fun4 = (a, b) => a + b
+        console.log(fun4(1, 2))
+
+        // 只有一个参数，只有一个语句的箭头函数
+        let fun5 = i => i
+        console.log(fun5('你好'))
+        console.log(fun5(123))
+
+        // 箭头函数的应用
+        var arr = ['a', 23, 6, 8, 'x', 45]
+        // 筛选偶数
+        console.log(arr.filter(item => item % 2 == 0));
+    </script>
+</body>
+
+</html>

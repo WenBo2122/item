@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #f2f2f2;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+      }
+
+      nav {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 20px;
+        background-color: #fff;
+      }
+
+      nav > div {
+        width: 70%;
+        height: 60px;
+        margin: 0 auto;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      a {
+        display: inline-block;
+        padding: 8px 12px;
+        margin-top: 12px;
+      }
+
+      nav > div > a:hover {
+        color: #fff;
+        background-color: #8cc03b;
+        border-radius: 10px;
+      }
+
+      .hov {
+        color: #fff;
+        background-color: #8cc03b;
+        border-radius: 10px;
+      }
+
+      .box {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 0 auto;
+        background-color: #fff;
+      }
+
+      .box > div {
+        width: 23%;
+        height: 176px;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .box > div img {
+        width: 100%;
+        height: 130px;
+      }
+
+      p {
+        text-align: left;
+      }
+
+      .btn {
+        width: 100px;
+        height: 28px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        line-height: 28px;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="" class="hov">内地</a>
+        <a href="">香港</a>
+        <a href="">台湾</a>
+        <a href="">日韩欧美</a>
+        <a href="">音悦V榜及自制</a>
+      </div>
+    </nav>
+
+    <div class="box"></div>
+    <div class="btn">加载更多</div>
+
+    <script>
+      let type = location.search.substring(6) || 1;
+      // 获取 导航链接
+      let $a = document.querySelectorAll("nav > div > a");
+      // 获取 按钮
+      let btn = document.querySelector(".btn");
+      let url = `http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=${type}&pageNum=1&pageSize=20`;
+      listUrl(url); // 加载页面时渲染页面
+      let index = type; // 保存导航的索引
+      let count = 1; // 页数
+
+      // 渲染导航
+      $a.forEach((item, i) => {
+        item.classList.remove("hov");
+        if (i == type) {
+          $a[i - 1].classList.add("hov");
+        }
+        // 点击切换导航
+        item.onclick = function (e) {
+          e.preventDefault(); // 默认阻止
+          index = i; // 保存当前索引
+          count = 1; // 切换导航 变为 第一页
+          let url = `http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=${i + 1}&pageNum=1&pageSize=20`;
+          listUrl(url); // 调用
+          // 改变样式
+          $a.forEach((a) => {
+            a.classList.remove("hov");
+          });
+          item.classList.add("hov");
+        };
+      });
+
+      // 请求数据
+      function listUrl(url) {
+        let str = ``;
+        fetch(url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((result) => {
+            // 渲染列表
+            result.list.forEach((item) => {
+              str += `
+                <div>
+                  <a href="./details.html?id=${item.id}">
+                    <img src="${item.videoImg}">
+                    <p>${item.videoName}</p>
+                  </a>
+                </div>
+              `;
+            });
+            document.querySelector(".box").innerHTML = str;
+          });
+
+        // 加载更多
+        btn.onclick = function () {
+          count++;
+          let url1 = `http://192.168.211.135:3000/myapi/video/getTypeVideoList?videoType=${
+            index + 1
+          }&pageNum=${count}&pageSize=20`;
+          // 请求下一页数据
+          fetch(url1)
+            .then((res) => {
+              return res.json();
+            })
+            .then((result) => {
+              // 加载下一页列表
+              result.list.forEach((item) => {
+                str += `
+                <div>
+                  <a href="./details.html?id=${item.id}">
+                    <img src="${item.videoImg}">
+                    <p>${item.videoName}</p>
+                  </a>
+                </div>
+              `;
+              });
+              document.querySelector(".box").innerHTML = str;
+            });
+        };
+      }
+    </script>
+  </body>
+</html>

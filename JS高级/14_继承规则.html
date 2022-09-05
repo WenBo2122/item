@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      console.log(Object.prototype);
+      // 父构造函数
+      function A(p1, p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+      }
+      A.prototype.fn = function () {
+        console.log("fn");
+      };
+      A.prototype.fn3 = function () {
+        console.log("祖fn3");
+      };
+      // 添加静态属性和方法
+      A.newp = "abc";
+      A.say = function () {
+        console.log("hi");
+      };
+
+      // 子构造函数
+      function B(p1, p2, p3, p4) {
+        // 继承属性
+        A.call(this, p1, p2);
+        this.p3 = p3;
+        this.p4 = p4;
+      }
+
+      // 原型继承
+      B.prototype = Object.create(A.prototype);
+      B.prototype.constructor = B;
+
+      // 新增方法
+      B.prototype.fn1 = function () {
+        console.log("fn1");
+      };
+      // B.prototype.fn3 = function () {
+      //     console.log('父fn3')
+      // }
+
+      let o1 = new B("a", "b", "c", "d");
+      console.log(o1);
+      o1.fn1();
+      o1.fn();
+      // o1.fn2()//o1.fn2 is not a function
+      // 原型链查找规则
+      // o1.fn3 = function () {
+      //     console.log('fn3')
+      // }
+      o1.fn3();
+
+      console.log(o1.newp); //undefined  构造函数的静态属性和方法不能被继承走
+      // o1.say()//o1.say is not a function
+      console.log(A.newp);
+      A.say();
+
+      /*
+        结论：
+        对象在调用一个方法的时候，会从自身查找，找到就执行，如果没有
+        向父构造函数去查找，找到就执行，如果没有
+        向父父构造函数去查找，找到就执行，如果没有
+        ....
+        一直找到顶级Object上，找到就执行,如果还没有，就报错 xx is not a function
+        */
+    </script>
+  </body>
+</html>

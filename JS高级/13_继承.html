@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 父构造函数
+      function CreateAnimal(type) {
+        this.type = type;
+      }
+
+      CreateAnimal.prototype.move = function () {
+        console.log(this.type + "会动");
+      };
+
+      // 子对象
+      // let dog = new CreateAnimal('狗')
+      // let cat = new CreateAnimal('猫')
+
+      // 子构造函数
+      function CreateDog(type, variety) {
+        // this.type = type  //什么动物类型
+        // 实现继承
+        // CreateAnimal.call(this, type) //将父函数的this指向当前的子构造函数的this
+        CreateAnimal.apply(this, [type]);
+
+        this.variety = variety; //什么品种
+      }
+
+      // 原型继承
+      // Object.create() 方法用于创建一个新对象，使用现有的对象来作为新创建对象的原型（prototype）。
+      CreateDog.prototype = Object.create(CreateAnimal.prototype);
+      // 避免子对象找不到自己的构造器
+      CreateDog.prototype.constructor = CreateDog;
+
+      CreateDog.prototype.wow = function () {
+        console.log(`${this.type}中${this.variety}：会汪汪汪的叫`);
+      };
+
+      let bixiong = new CreateDog("狗", "比熊");
+      let keji = new CreateDog("狗", "柯基");
+      console.log(bixiong);
+      console.log(keji);
+      bixiong.move();
+      bixiong.wow();
+      keji.wow();
+
+      console.log(keji.__proto__.constructor); //CreateDog() [缺少constructor指向父会丢了]
+      console.log(keji.__proto__.__proto__.constructor); //CreateAnimal()
+    </script>
+  </body>
+</html>

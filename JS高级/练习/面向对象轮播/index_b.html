@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="slider-box">
+      <div class="images">
+        <a href="#" class="active">
+          <img src="img/1.jpg" alt="第1张图" />
+        </a>
+        <a href="#">
+          <img src="img/2.jpg" alt="第1张图" />
+        </a>
+        <a href="#">
+          <img src="img/3.jpg" alt="第1张图" />
+        </a>
+        <a href="#">
+          <img src="img/4.jpg" alt="第1张图" />
+        </a>
+        <a href="#">
+          <img src="img/5.jpg" alt="第1张图" />
+        </a>
+      </div>
+      <div class="navs">
+        <a href="javascript:;" class="prev" title="前一张"></a>
+        <a href="javascript:;" class="next" title="后一张"></a>
+      </div>
+      <div class="pages">
+        <a href="javascript:;" class="dot active"></a>
+        <a href="javascript:;" class="dot"></a>
+        <a href="javascript:;" class="dot"></a>
+        <a href="javascript:;" class="dot"></a>
+        <a href="javascript:;" class="dot"></a>
+      </div>
+    </div>
+
+    <!-- 面向过程 -->
+    <!-- <script src="./carousel_1.js"></script> -->
+    <!-- 面向对象、构造函数 -->
+    <!-- <script src="./carousel_2.js"></script> -->
+    <!-- 面向对象类 构造函数 -->
+    <script src="./carousel_3.js"></script>
+
+    <script>
+      // 实例化对象
+      // let carousel = new CreateCarousel({
+      //   box: document.querySelector(".slider-box"),
+      //   images: document.querySelectorAll(".images a"),
+      //   prev: document.querySelector(".navs .prev"),
+      //   next: document.querySelector(".navs .next"),
+      //   dots: document.querySelectorAll(".pages .dot"),
+      // });
+
+      let carousel = new CreateCarousel({});
+    </script>
+  </body>
+</html>

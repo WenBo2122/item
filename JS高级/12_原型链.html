@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 父对象
+      function CreateAnimal(type) {
+        this.type = type;
+      }
+      // 子对象
+      let dog = new CreateAnimal("狗");
+      let cat = new CreateAnimal("猫");
+
+      console.dir(dog);
+      console.dir(dog.__proto__);
+      console.dir(dog.__proto__.constructor); //父==>CreateAnimal()
+      // 原型对象的原型对象
+      console.dir(dog.__proto__.__proto__);
+      console.dir(dog.__proto__.__proto__.constructor); //祖父==>Object()
+      // Object()
+      console.log(Object.prototype == dog.__proto__.__proto__);
+
+      console.dir(dog.__proto__.__proto__.__proto__); //原型的尽头 null
+      //   console.dir(Object.prototype.__proto__); //原型的尽头 null
+
+      // 原型链
+    </script>
+  </body>
+</html>

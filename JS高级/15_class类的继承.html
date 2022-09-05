@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 父类
+      class A {
+        constructor(a, b, c) {
+          this.a = a;
+          this.b = b;
+          this.c = c;
+        }
+        // 类的方法只能使用简写
+        fn() {
+          console.log("fn");
+        }
+        f1() {}
+        f2() {}
+        f3() {}
+        f4() {}
+        f5() {}
+
+        // 类的静态属性和方法
+        static aaa = "aaa";
+        static fff() {
+          console.log("fff");
+        }
+      }
+
+      console.log(A.aaa);
+      A.fff();
+      // 也是静态
+      A.bbb = "bbb";
+      A.fff2 = function () {
+        console.log("fff2");
+      };
+
+      // let objA = new A(1, 2, 3)
+      // console.log(objA);
+      // 子类
+      class B extends A {
+        //A的派生类(子类)B
+        constructor(a, b, c, d, e) {
+          // 使用super方法继承来自父构造函数的属性
+          super(a, b, c);
+          this.d = d;
+          this.e = e;
+        }
+        fn_() {
+          console.log("fn_");
+        }
+        newFn() {
+          // 继承的基础，扩展;方法的继承借用super对象
+          super.fn();
+          console.log("newFn");
+        }
+      }
+
+      let objB = new B(1, 2, 3, 4, 5);
+      console.log(objB);
+      objB.fn();
+      objB.fn_();
+      objB.newFn();
+      // 静态属性和方法不能继承
+      console.log(objB.aaa); //undefined
+      // objB.fff() // objB.fff is not a function
+    </script>
+  </body>
+</html>

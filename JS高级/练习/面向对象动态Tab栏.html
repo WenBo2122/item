@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      h4 {
+        font-size: 26px;
+        text-align: center;
+        margin: 80px 0 0 0;
+      }
+      .tabsbox {
+        width: 1000px;
+        height: 400px;
+        border: 1px solid red;
+        margin: 80px auto;
+      }
+
+      .fisrtnav {
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+      }
+      .fisrtnav ul {
+        display: flex;
+        text-align: center;
+        overflow: hidden;
+      }
+      .fisrtnav li {
+        width: 80px;
+        border: 1px solid red;
+        line-height: 40px;
+      }
+      .fisrtnav .liactive {
+        border-bottom: none;
+      }
+
+      .tabadd {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px;
+        margin-right: 20px;
+        text-align: center;
+        border: 1px solid #333;
+      }
+
+      .tabscon {
+        width: 100%;
+        height: 360px;
+        padding: 35px 25px;
+      }
+
+      .tabscon section {
+        display: none;
+      }
+
+      .tabscon .conaction {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Jscript 面向对象 动态添加标签页</h4>
+    <div class="tabsbox" id="tab">
+      <nav class="fisrtnav">
+        <ul>
+          <li class="liactive">
+            <span>测试1</span>
+          </li>
+          <li>
+            <span>测试2</span>
+          </li>
+          <li>
+            <span>测试3</span>
+          </li>
+          <li>
+            <span>测试4</span>
+          </li>
+          <li>
+            <span>测试5</span>
+          </li>
+          <li>
+            <span>测试6</span>
+          </li>
+        </ul>
+        <div class="tabadd">
+          <span>+</span>
+        </div>
+      </nav>
+
+      <!-- tab 内容 -->
+      <div class="tabscon">
+        <section class="conaction">测试1</section>
+        <section>测试2</section>
+        <section>测试3</section>
+        <section>测试4</section>
+        <section>测试5</section>
+        <section>测试6</section>
+      </div>
+    </div>
+
+    <script src="./面向对象封装cookie.js"></script>
+    <script>
+      var that;
+      // 创建一个 Tab 类
+      class Tab {
+        constructor(id) {
+          that = this;
+          // 获取元素
+          this.main = document.querySelector(id);
+          this.lis = this.main.querySelectorAll("li");
+          this.section = this.main.querySelectorAll("section");
+
+          this.init();
+        }
+
+        init() {
+          // init 初始化操作让相关的元素绑定事件
+          this.lis.forEach((item, i) => {
+            this.lis[i].index = i;
+            item.onclick = this.toggleTab;
+          });
+        }
+
+        // 1、切换功能
+        toggleTab() {
+          that.clearClass();
+          this.className = "liactive";
+          that.section[this.index].className = "conaction";
+        }
+
+        // 清楚样式
+        clearClass() {
+          this.lis.forEach((item, i) => {
+            item.className = "";
+            this.section[i].className = "";
+          });
+        }
+      }
+      new Tab("#tab");
+    </script>
+  </body>
+</html>

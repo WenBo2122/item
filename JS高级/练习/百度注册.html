@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      input {
+        border: 0;
+        outline: 0;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://ppui-static-pc.cdn.bcebos.com/static/passpc-account/img/reg_bg_min.jpg);
+        background-size: 100% 100%;
+      }
+
+      .box {
+        position: absolute;
+        top: 10px;
+        right: 200px;
+        width: 480px;
+        height: 680px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      .con {
+        width: 400px;
+        margin: 0 auto;
+      }
+      .con h1 {
+        font-size: 34px;
+        margin: 58px 0 13px 0;
+      }
+      .con > form > p {
+        margin-bottom: 70px;
+        font-size: 13px;
+        color: #a49b9b;
+      }
+      .con a {
+        margin-left: 10px;
+        color: #2e97fa;
+      }
+
+      .item {
+        height: 40px;
+        margin-bottom: 40px;
+      }
+      .item label {
+        font-size: 13px;
+        margin-right: 14px;
+      }
+      .item input {
+        width: 342px;
+        height: 40px;
+        padding-left: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 3px;
+      }
+
+      /* 输入框获取焦点时 */
+      .item input:focus {
+        border-color: #2e97fa;
+      }
+      #verify {
+        width: 205px;
+      }
+      #getVerify {
+        width: 123px;
+        padding: 0;
+        background-color: #fff;
+      }
+
+      #register {
+        width: 400px;
+        height: 50px;
+        border: none;
+        border-radius: 25px;
+        background-color: #3f89ec;
+        color: #fff;
+      }
+      .protocol p {
+        width: 348px;
+        margin: 0 auto;
+        font-size: 12px;
+      }
+
+      .protocol p input {
+        position: relative;
+        top: 2px;
+      }
+
+      .last {
+        margin-bottom: 25px;
+      }
+
+      span {
+        font-size: 12px;
+        margin-left: 66px;
+        color: red;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+        <div class="con">
+          <form action="" id="form1">
+            <h1>欢迎注册</h1>
+            <p>已有账号? <a href="">登录</a></p>
+
+            <div class="item">
+              <label for="uname">用户名</label>
+              <input type="text" id="uname" placeholder="请设置用户名" />
+              <span class="hide"> 用户名仅支持中英文、数字和下划线,且不能为纯数字 </span>
+              <span class="hide"> 提示：只能是7位中文 或者 14位英文 </span>
+            </div>
+
+            <div class="item">
+              <label for="mobile">手机号</label>
+              <input type="text" id="mobile" placeholder="可用于登录和找回密码" />
+              <span class="hide">手机号码格式不正确</span>
+            </div>
+
+            <div class="item">
+              <label for="pwd">密&nbsp;&nbsp;&nbsp;码</label>
+              <input type="password" id="pwd" placeholder="请设置登录密码" />
+              <span class="hide">密码设置不符合要求</span>
+            </div>
+
+            <!-- <div class="item">
+              <label for="verify">验证码</label>
+              <input type="text" id="verify" placeholder="请输入验证码" />
+              <input type="button" id="getVerify" value="获取验证码" />
+            </div> -->
+            <div class="item last">
+              <button id="submit">注册</button>
+            </div>
+
+            <!-- <div class="protocol">
+              <p>
+                <input type="checkbox" /> 阅读并接受<a href="#"
+                  >《百度用户协议》</a
+                >及<a href="#">《百度隐私权保护声明》</a>
+              </p>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let unameReg = /^\w{1,14}$/;
+
+    // 用户名验证
+    uname.onfocus = function () {
+      this.nextElementSibling.nextElementSibling.classList.remove("hide");
+    };
+    uname.onblur = function () {
+      this.nextElementSibling.nextElementSibling.classList.add("hide");
+    };
+    // 失去焦点后 值改变了 就重新验证
+    uname.onchange = function () {
+      varifyUname(this, unameReg);
+    };
+
+    function varifyUname(val, valReg) {
+      if (!valReg.test(val.value)) {
+        val.nextElementSibling.classList.remove("hide");
+        return false;
+      } else {
+        val.nextElementSibling.classList.add("hide");
+        return true;
+      }
+    }
+
+    // 提交
+    form1.onsubmit = function (e) {
+      e.preventDefault();
+      let vU = varifyUname(uname, unameReg);
+      if (!vU) {
+        return;
+      }
+      console.log("成功");
+    };
+  </script>
+</html>

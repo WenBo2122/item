@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <script>
+        btn.onclick = function () {
+            console.log(this)//btn
+            function fn() {
+                console.log(this)//普通函数指向window
+            }
+            fn()
+            let fn2 = () => {
+                console.log(this)//btn
+            }
+            fn2()
+        }
+
+        let fn3 = () => {
+            console.log(this)//window
+        }
+        fn3()
+
+        /* 箭头函数没有自己的this指向，当前词法环境的this指向哪里，它就指向哪里 */
+        /* 箭头函数没有arguments */
+    </script>
+</body>
+
+</html>
