@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./font/iconfont.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- 顶部导航 -->
+      <div class="header-top">
+        <div class="container">
+          <!-- 导航 -->
+          <div class="header-nav-left">
+            <a href="">小米官网</a><span>|</span><a href="">小米商城</a
+            ><span>|</span><a href="">MIUI</a><span>|</span><a href="">loT</a
+            ><span>|</span><a href="">云服务</a><span>|</span>
+            <a href="">天星数科</a><span>|</span><a href="">有品</a
+            ><span>|</span><a href="">小爱开放平台</a><span>|</span>
+            <a href="">企业团购</a><span>|</span><a href="">资质证照</a
+            ><span>|</span><a href="">协议规则</a><span>|</span
+            ><a href="">下载app</a><span>|</span><a href="">Select Location</a>
+            <!-- 登录 -->
+            <div class="header-nav-right">
+              <a href="">登录</a><span>|</span><a href="">注册</a><span>|</span
+              ><a href="">消息通知</a>
+              <button class="shopping">
+                购物车 (0)
+                <div class="shopping-text">
+                  <div>购物车中还没有商品，赶紧选购吧！</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- logo图标 -->
+      <div class="container">
+        <div class="header-nav2">
+          <div class="logo"><img src="./img/logo-mi2.png" alt="" /></div>
+          <div class="header-item">
+            <ul class="header-list">
+              <li><a href="">Xiaomi手机</a></li>
+              <li><a href="">Redmi手机</a></li>
+              <li><a href="">电视</a></li>
+              <li><a href="">笔记本</a></li>
+              <li><a href="">平板</a></li>
+              <li><a href="">家电</a></li>
+              <li><a href="">路由器</a></li>
+              <li><a href="">服务中心</a></li>
+              <li><a href="">社区</a></li>
+            </ul>
+          </div>
+          <form action="">
+            <div class="input">
+              <!-- 输入框 -->
+              <input type="text" placeholder="电视" />
+              <input type="submit" value="&#xe62a;" class="sousuo iconfont" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- 轮播图 -->
+      <div class="lunbo container">
+        <div id="myCarousel" class="carousel slide">
+          <!-- 轮播（Carousel）指标 -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+          </ol>
+          <!-- 轮播（Carousel）项目 -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <a href="">
+                <img src="./img/lunbo1.jpg" alt="First slide" />
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <img src="./img/lunbotu1.jpg" alt="Second slide" />
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <img src="./img/lunbotu2.jpg" alt="Third slide" />
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <img src="./img/lunbotu3.jpg" alt="Third slide" />
+              </a>
+            </div>
+            <div class="item">
+              <a href="">
+                <img src="./img/lunbotu4.jpg" alt="Third slide" />
+              </a>
+            </div>
+          </div>
+          <!-- 轮播（Carousel）导航 -->
+          <a
+            class="left carousel-control"
+            href="#myCarousel"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              class="glyphicon glyphicon-chevron-left"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="right carousel-control"
+            href="#myCarousel"
+            role="button"
+            data-slide="next"
+          >
+            <span
+              class="glyphicon glyphicon-chevron-right"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <!-- 轮播列表 -->
+        <div class="lunbo-nav">
+          <ul>
+            <li><a href="">手机</a></li>
+            <li><a href="">电视</a></li>
+            <li><a href="">笔记本 平板</a></li>
+            <li><a href="">出行 穿戴</a></li>
+            <li><a href="">耳机 音响</a></li>
+            <li><a href="">家电</a></li>
+            <li><a href="">智能 路由器</a></li>
+            <li><a href="">电源 配件</a></li>
+            <li><a href="">健康 儿童</a></li>
+            <li><a href="">生活 箱包</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- header 底部 -->
+      <div class="header-button container clearfix">
+        <div class="header-button-left">
+          <div>
+            <a href="">
+              <img src="./img/保障服务.png" alt="" />
+              <p>保障服务</p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="./img/企业团购.png" alt="" />
+              <p>企业团购</p>
+            </a>
+          </div>
+          <div>
+            <a href=""
+              ><img src="./img/F码通道.png" alt="" />
+              <p>F码通道</p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="./img/米粉卡.png" alt="" />
+              <p>米粉卡</p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="./img/以旧换新.png" alt="" />
+              <p>以旧换新</p>
+            </a>
+          </div>
+          <div>
+            <a href="">
+              <img src="./img/话费充值.png" alt="" />
+              <p>话费充值</p>
+            </a>
+          </div>
+        </div>
+        <div class="header-button-right">
+          <ul>
+            <li>
+              <a href=""><img src="./img/header-button3.jpg" alt="" /></a>
+            </li>
+            <li>
+              <a href=""><img src="./img/header-button2.jpg" alt="" /></a>
+            </li>
+            <li>
+              <a href=""><img src="./img/header-button1.jpg" alt="" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- 内容 -->
+    <main class="box">
+      <div class="container">
+        <div class="test">
+          <a href="">
+            <img src="./img/test.jpg" alt="" />
+          </a>
+        </div>
+
+        <!-- 手机 -->
+
+        <div class="box-text">
+          <h2>手机</h2>
+          <div class="box-text-list">
+            <a href="">查看更多<i class="iconfont">&#xe625;</i></a>
+          </div>
+        </div>
+
+        <!-- 手机列表 -->
+        <div class="mobile">
+          <div class="mobile-left">
+            <div class="shangyi">
+              <a href="">
+                <img src="./img/手机.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="mobile-right">
+            <ul>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/xiaomi12s.webp" alt="" />
+                  <h3 class="title">Xiaomi 12S Ultra</h3>
+                  <p class="desc">这真徕卡 | 专业徕卡影像</p>
+                  <p class="price">5999元起</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 智能穿戴 -->
+        <div class="box-text">
+          <h2>智能穿戴</h2>
+          <div class="box-text-list">
+            <ul>
+              <li>热门</li>
+              <li>穿戴</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 智能穿戴列表 -->
+        <div class="mobile">
+          <div class="mobile-left">
+            <div class="shangyi">
+              <a href="">
+                <img src="./img/智能穿戴.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="mobile-right">
+            <ul>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/Xiaomi Watch S1.jpg" alt="" />
+                  <h3 class="title">Xiaomi Watch S1</h3>
+                  <p class="desc">
+                    蓝宝石玻璃镜面 | 不锈钢中框 | 1.43”AMOLED大屏幕
+                  </p>
+                  <p class="price">1049元起 <span>1099元</span></p>
+                </a>
+              </li>
+
+              <div>
+                <li class="end">
+                  <ul>
+                    <li>
+                      <div class="end-1">
+                        <a href="">
+                          浏览更多
+                          <p>热门</p>
+                          <i class="iconfont"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 家电 -->
+        <div class="box-text">
+          <h2>家电</h2>
+          <div class="box-text-list">
+            <ul>
+              <li>热门</li>
+              <li>电视影音</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 家电列表 -->
+        <div class="mobile">
+          <div class="mobile-left">
+            <div class="mobile-left-list">
+              <a href="">
+                <img src="./img/家电.jpg" alt="" />
+              </a>
+            </div>
+            <div class="mobile-left-list">
+              <a href="">
+                <img src="./img/家电1.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+          <!-- 右侧 -->
+          <div class="mobile-right">
+            <ul>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src="./img/小米电视6 至尊版 65英寸.jpg" alt="" />
+                  <h3 class="title">小米电视6 65” OLED</h3>
+                  <p class="desc">
+                    OLED自发光屏 | 百万级对比度 | 4.6mm超薄全面屏
+                  </p>
+                  <p class="price">6699元起<span>6999元</span></p>
+                </a>
+              </li>
+
+              <div>
+                <li class="end">
+                  <ul>
+                    <li>
+                      <div class="end-1">
+                        <a href="">
+                          <h3>米家全自动波轮洗衣机8kg</h3>
+                          <p class="money">799元</p>
+                          <div><img src="./img/家电4.webp" alt="" /></div>
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="end-1">
+                        <a href="">
+                          浏览更多
+                          <p>热门</p>
+                          <i class="iconfont"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- 维修服务 -->
+      <div class="container">
+        <div class="footer-service">
+          <ul>
+            <li>
+              <a href="">预约维修服务</a>
+            </li>
+            <li>
+              <a href="">七天无理由退货</a>
+            </li>
+            <li>
+              <a href="">15天免费换货</a>
+            </li>
+            <li>
+              <a href="">满69元包邮</a>
+            </li>
+            <li>
+              <a href="">1100余家售后网点</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 选购指南 -->
+        <div class="footer-links clearfix">
+          <dl>
+            <dt>选购指南</dt>
+            <dd><a href="">手机</a></dd>
+            <dd><a href="">电视</a></dd>
+            <dd><a href="">笔记本</a></dd>
+            <dd><a href="">平板</a></dd>
+            <dd><a href="">穿戴</a></dd>
+            <dd><a href="">耳机</a></dd>
+            <dd><a href="">家电</a></dd>
+            <dd><a href="">路由器</a></dd>
+            <dd><a href="">音响</a></dd>
+            <dd><a href="">配件</a></dd>
+          </dl>
+          <dl>
+            <dt>服务中心</dt>
+            <dd><a href="">申请售后</a></dd>
+            <dd><a href="">售后政策</a></dd>
+            <dd><a href="">维修服务价格</a></dd>
+            <dd><a href="">订单查询</a></dd>
+            <dd><a href="">以旧换新</a></dd>
+            <dd><a href="">保障服务</a></dd>
+            <dd><a href="">防伪查询</a></dd>
+            <dd><a href="">F码通道</a></dd>
+          </dl>
+          <dl>
+            <dt>线下门店</dt>
+            <dd><a href="">小米之家</a></dd>
+            <dd><a href="">服务放点</a></dd>
+            <dd><a href="">授权体验店/专区</a></dd>
+          </dl>
+          <dl>
+            <dt>关于小米</dt>
+            <dd><a href="">了解小米</a></dd>
+            <dd><a href="">加入小米</a></dd>
+            <dd><a href="">投资者关系</a></dd>
+            <dd><a href="">环境，社会及管制</a></dd>
+            <dd><a href="">廉洁举报</a></dd>
+          </dl>
+          <dl>
+            <dt>新浪微博</dt>
+            <dd><a href="">新浪微博</a></dd>
+            <dd><a href="">官方微信</a></dd>
+            <dd><a href="">联系我们</a></dd>
+            <dd><a href="">公益基金会</a></dd>
+          </dl>
+          <div class="col-contact">
+            <p>400-100-5678</p>
+            <p>8:00-18:00(仅收市话费)</p>
+            <a href="">人工客服</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部信息 -->
+      <div class="site-info">
+        <div class="site-info-al container">
+          <div class="site-info-logo">
+            <img src="./img/logo-mi2.png" alt="" />
+          </div>
+          <div class="info-links">
+            <p class="sites">
+              <a href="">小米商城</a><span>|</span> <a href="">MIUI</a
+              ><span>|</span> <a href="">米家</a><span>|</span>
+              <a href="">多看</a><span>|</span> <a href="">游戏</a
+              ><span>|</span> <a href="">政企服务</a><span>|</span>
+              <a href="">小米天猫店</a><span>|</span>
+              <a href="">小米集团隐私政策</a><span>|</span>
+              <a href="">小米公司儿童信息保护规则</a><span>|</span>
+              <a href="">小米商城隐私政策</a><span>|</span>
+              <a href="">小米商城用户协议</a><span>|</span>
+              <a href="">问题反馈</a><span>|</span>
+              <a href="">Select Location</a>
+              <br />
+              <a href="">北京互联网法院法律服务工作站</a><span>|</span>
+              <a href="">中国消费者协会</a><span>|</span>
+              <a href="">北京市消费者协会</a>
+            </p>
+            <p>
+              ©<a href="">mi.com</a>京ICP证110507号
+              <a href="">京ICP备10046444号</a
+              ><a href="">京公网安备11010802020134号</a>
+              <br />
+              <a href="">（京）网械平台备字（2018）第00005号</a>
+              <a href="">互联网药品信息服务资格证 (京)-非经营性-2014-0090</a
+              ><a href="">营业执照</a><a href="">医疗器械质量公告</a>
+              <br />
+              <a href="">增值电信业务许可证</a>&nbsp;网络食品经营备案
+              京食药网食备202010048&nbsp;<a href="">食品经营许可证</a>
+              <br />违法和不良信息举报电话：171-5104-4404
+              <a href="">知识产权侵权投诉</a
+              >本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+            </p>
+          </div>
+          <div class="info-links">
+            <a href="">
+              <img src="./img/TRUSTe Privacy Certification.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/诚信网站.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/可信网站.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/诚信经营 放心消费.png" alt="" />
+            </a>
+            <a href="">
+              <img src="./img/网站安全.png" alt="" />
+            </a>
+          </div>
+          <div class="slogan">
+            <img src="./img/slogan2020.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 右侧固定栏 -->
+    <div class="fixed">
+      <div>
+        <a href="">
+          <div class="xianshi">
+            <img src="./img/手机app.png" alt="" />
+            <img src="./img/手机app1.png" alt="" />
+          </div>
+          <p>手机App</p>
+          <div class="erweima">
+            <img src="./img/二维码.png" alt="" />
+            <div>扫码领取新人百元礼包</div>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a href="">
+          <div class="xianshi">
+            <img src="./img/个人中心.png" alt="" />
+            <img src="./img/个人中心1.png" alt="" />
+          </div>
+          <p>个人中心</p>
+        </a>
+      </div>
+      <div>
+        <a href="">
+          <div class="xianshi">
+            <img src="./img/售后服务.png" alt="" />
+            <img src="./img/售后服务1.png" alt="" />
+          </div>
+          <p>售后服务</p>
+        </a>
+      </div>
+      <div>
+        <a href="">
+          <div class="xianshi">
+            <img src="./img/人工客服.png" alt="" />
+            <img src="./img/人工客服1.png" alt="" />
+          </div>
+          <p>人工客服</p>
+        </a>
+      </div>
+      <div>
+        <a href="">
+          <div class="xianshi">
+            <img src="./img/购物车.png" alt="" />
+            <img src="./img/购物车1.png" alt="" />
+          </div>
+          <p>购物车</p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
