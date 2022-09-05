@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt" />
+
+    <script>
+      ipt.oninput = function () {
+        let sval = this.value;
+        // 方法一： 传统判断
+        if (sval.length >= 3 && sval.length <= 6) {
+          console.log("可以注册");
+        } else {
+          console.log("请输入有效的账号");
+        }
+        // 新的语法规范 正则表达式
+        // 新语法规范 正则表达式 js 提供的创建正则的对象RegExp [属性和方法]
+
+        let reg = /^\w{3,6}$/; // 判断祖父穿是否是3 - 6位  由字母数字组成
+
+        if (reg.test(sval)) {
+          console.log("可以注册");
+        } else {
+          console.log("请输入有效的账号");
+        }
+      };
+    </script>
+  </body>
+</html>

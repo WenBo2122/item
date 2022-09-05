@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = "我喜欢读书，比如：‘白夜行’，‘飞鸟集’，‘野草·野花’，‘javascript高级教程’，以及各类编程书";
+      // 检索书籍
+      let reg = /‘.+’/g;
+      console.log(str.match(reg));
+      // 懒惰模式 加？
+      let reg1 = /‘.+’/g;
+      console.log(str.match(reg1));
+    </script>
+  </body>
+</html>

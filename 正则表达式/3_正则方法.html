@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea name="" id="txt" cols="30" rows="10"></textarea>
+
+    <script>
+      txt.oninput = function () {
+        var str = this.value;
+
+        var newStr = str.replace(/a/g, "*"); // 修饰符 全局 g
+      };
+
+      // 字符串的方法 应用正则
+      console.log("axa".replace(/a/, "*")); // 匹配替换一个
+      console.log("axa".replace(/a/g, "*")); // 匹配替换多个
+
+      console.log("axa".replaceAll(/a/g, "*")); // 匹配多个 必须使用全局匹配
+
+      // match matchAll search
+      var str1 = "Hello,World,1234123";
+      console.log(str1.match("l"));
+      console.log(str1.match(/l/)); // 数组、包含匹配字符的信息
+      console.log(str1.match(/l/g)); // 数组、只包含匹配字符
+      console.log(str1.match(/[o-z]/g)); // 数组、只包含匹配字符
+      console.log(str1.match(/\d/g)); // 数组、只包含匹配字符
+
+      // 查找
+      // matchAll() 的返回值是 RegExpStringIterator 迭代器
+      console.log(str1.matchAll(/l/g)); // 可迭代对象
+
+      let str11 = str1.matchAll(/l/g);
+      for (let s of str11) {
+        console.log(s);
+      }
+
+      // 可迭代对象与为数组都可以使用 Array.from 转换为真数组
+      console.log(Array.from(str11));
+
+      var str2 = "+86-0371-1234567";
+      // console.log(str2.match(/\d/g).join(``));
+
+      console.log(str2.search(/\d/)); // 1 匹配字符的第一个字符的索引
+      console.log(str2.search(/\d/g)); // 1 没有全局模式
+      console.log(str2.search(/[a-z]/i)); // -1 匹配不到
+
+      // 截取
+      var str3 = "a=98,b=19,c=123";
+      console.log(str3.split(/[=;,]/));
+    </script>
+  </body>
+</html>

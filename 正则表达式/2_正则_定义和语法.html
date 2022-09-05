@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义正则
+      let reg1 = new RegExp("a"); // 匹配字符串是否有 a
+      let reg2 = /b/; // 匹配字符串是否有 b
+
+      console.log(reg1);
+      console.log(reg2);
+
+      // 正则对象提供的检测方法 test() 返回 Boolean 结果
+
+      console.log(reg1.test("qwertyui")); //false
+      console.log(reg2.test("abc")); // true
+
+      // 语法
+      let reg11 = /a/;
+      let reg22 = /ab/;
+      let reg33 = /abc/;
+
+      console.log(reg11.test("abababab")); // true
+      console.log(reg22.test("abababab")); // true
+      console.log(reg33.test("abababab")); //false
+
+      let reg44 = /[abc]/;
+
+      console.log(reg44.test("aaaaaaa")); // true
+      console.log(reg44.test("bbbbbbb")); // true
+      console.log(reg44.test("abababab")); // true
+      console.log(reg44.test("bcbcbcbc")); // true
+
+      let reg55 = /[a-z]/;
+      let reg66 = /[A-Z]/;
+      let reg77 = /[a-z]/i; // i 忽略大小写
+      let reg88 = /[0-9]/;
+      let reg99 = /[a-z0-9]/; // 大小写字母数字
+
+      // 匹配中文
+      let reg10 = /[\u4e00-\u9fa5]/;
+      console.log(reg10.test("你好")); // false
+
+      // ^ 是否已某字开头
+      let reg111 = /^[ab]/;
+      console.log(reg111.test("xyzbab")); // false
+      console.log(reg111.test("abasdfghjkl")); // true
+
+      // $ 是否已某字符结尾
+      let reg112 = /oop$/;
+      console.log(reg112.test("abp")); // false
+      console.log(reg112.test("abop")); // false
+      console.log(reg112.test("aboo")); // false
+      console.log(reg112.test("aboop")); // true
+
+      //  ^xxxxx$ 绝对匹配
+      let reg113 = /^abc$/; // 只能^$有中间的字符
+      console.log(reg113.test("abcnnabc")); // false
+      console.log(reg113.test("abc")); // true
+
+      // ^写在[]内、代表排除项
+      let reg114 = /[^ab]/; //是否含有不是 ab 的字符
+      console.log(reg114.test("a")); // false
+      console.log(reg114.test("b")); // false
+      console.log(reg114.test("ab")); // false
+      console.log(reg114.test("ttt")); // true
+      console.log(reg114.test("xxxa")); // true
+      console.log(reg114.test("wwwab")); // true
+
+      // {} 量词
+      let reg115 = /^[a-z]$/; // 只能匹配一个小写字符
+      let reg116 = /^[a-z]{3}$/; // 任意字符 三个
+      let reg117 = /^[a-z]{3,}$/; // 三个以上字符
+      let reg118 = /^[a-z]{3,8}$/; // 三 到 八个
+      console.log(reg115.test("ab2c")); // false
+      console.log(reg115.test("aa")); // false
+      console.log(reg116.test("aa")); // false
+      console.log(reg116.test("aaa")); // true
+      console.log(reg116.test("aox")); // true
+      console.log(reg116.test("aoxx")); // false
+      console.log(reg117.test("aoxzx")); // true
+      console.log(reg118.test("ao")); // false
+      console.log(reg118.test("aox")); // true
+      console.log(reg118.test("aoxzx")); // true
+      console.log(reg118.test("aoxzxsss")); // true
+      console.log(reg118.test("aoxzxqwert")); // false
+
+      // 量词元字符 + ? *   +一个以上  ?0或1个 *任意个
+      let reg119 = /^a+[A-Z]?[0-9]*$/; //
+      console.log(reg119.test("a")); // true
+      console.log(reg119.test("aa")); // true
+      console.log(reg119.test("aas")); // false
+      console.log(reg119.test("aaS")); // true
+      console.log(reg119.test("aaSS")); // false
+      console.log(reg119.test("aaS123")); // true
+
+      // 字符集元字符 \w \d \s [a-zA-Z0-9]字母数字、[0-9]数字、空字符
+      // 字符集元字符 \W \D \S 取反 不是字母数字、不是数字、不是空字符
+      // [a-z]
+      // [A-Z]
+      // [0-9]
+      // [\ue400 - \u9fa5]
+
+      let reg120 = /^\d$/;
+      let reg121 = /^\w$/;
+      console.log(reg120.test("4")); // true
+      console.log(reg120.test("4A")); //false
+      console.log(reg120.test("4A44")); // false
+
+      console.log(reg121.test("4")); // true
+      console.log(reg121.test("4A")); // false
+      console.log(reg121.test("44")); // false
+
+      let reg122 = /[asdfa_\\\*\?%()\$]/;
+      let reg123 = /^\w$/;
+
+      // 除 字母数字下划线 的特殊字符
+      console.log(reg123.test("@"));
+      console.log(reg123.test("_"));
+
+      // | ()
+      let reg124 = /^a|b|c$/; // 匹配 a 或 b 或 c
+      let reg125 = /^ab|cd|ef$/; // 匹配 ab 或 cd 或 ef
+
+      // 任意字符
+      let reg126 = /./;
+      console.log(reg126.test("世界"));
+    </script>
+  </body>
+</html>
