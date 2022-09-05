@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      navigator.platform // 操作系统类型
+      navigator.userAgent //浏览器设定的 User-Agent 字符串 ***
+      navigator.appCodeName // 浏览器代码
+      navigator.appName // 浏览器名称
+      navigator.appVersion // 浏览器版本、
+      navigator.language  // 浏览器设置的语言
+      navigator.systemLanguage // 浏览器系统语言： // id能获取
+      navigator.cookieEnabled // 浏览器是否启用了 cookie ***
+    -->
+    <script>
+      console.log(navigator.userAgent); // 代理商
+      console.log(navigator.platform); 
+      console.log(navigator.appCodeName);
+      console.log(navigator.appName);
+      console.log(navigator.appVersion);
+      console.log(navigator.language);
+      console.log(navigator.systemLanguage);
+      console.log(navigator.cookieEnabled); //是否启用 cookie
+
+      let agentStr = navigator.userAgent;
+      if (agentStr.includes("Edg")) {
+        console.log("是Edge");
+      } else if (agentStr.includes("Chrome")) {
+        console.log("是谷歌");
+      } else if (agentStr.includes("Firefox")) {
+        console.log("是火狐");
+      }
+    </script>
+  </body>
+</html>

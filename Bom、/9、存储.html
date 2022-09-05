@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./cookie.js"></script>
+    <script>
+      // <!-- 设置cookie -->
+      setCookie("key", 1, 60);
+      setCookie("key1", 2, 60);
+
+      // 获取
+      console.log(getCookie("key"));
+
+      // 移除
+      removeCookie("key");
+
+      // 本地储存
+      localStorage.setItem("keya", "张三");
+      localStorage.setItem("keyb", "李四");
+
+      // 获取
+      console.log(localStorage.getItem("keya"));
+
+      // 删除
+      localStorage.removeItem("keya");
+
+      // 临时储存
+      sessionStorage.setItem("keyI", "王五");
+      sessionStorage.setItem("keyI", "你想啥");
+
+      // 获取
+      sessionStorage.getItem("keyI");
+
+      // 删除
+      sessionStorage.removeItem("keyI");
+    </script>
+  </body>
+</html>

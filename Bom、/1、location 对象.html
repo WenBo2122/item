@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location 对象</title>
+  </head>
+  <body>
+    <script>
+      console.log(location); // url 地址
+      // URL[协议名]: //用户名：密码@服务器地址：服务器端口号/路径/查询字符#片段ID
+
+      console.log(location.href);
+      // location.href = "https://www.baidu.com";
+
+      console.log(location.hash);
+
+      console.log(location.host);
+      console.log(location.hostname);
+      console.log(location.origin);
+      console.log(location.pathname);
+      console.log(location.port);
+      console.log(location.protocol);
+
+      console.log(location.search); // 读取查询字符串
+      var str = location.search;
+      // 去掉 ?
+      str = str.substring(1);
+      // 截开数据
+      str = str.split("&");
+      console.log(str);
+      // 访问每个数据值
+      str.forEach((s) => {
+        let item = s.split("=");
+        console.log(item[1]);
+      });
+    </script>
+  </body>
+</html>

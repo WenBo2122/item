@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./md5.js"></script>
+    <script>
+      // MD5
+      let str = "张三aa22.*(&^%";
+      let str1 = md5(str);
+
+      console.log(str1);
+      console.log(str1.length); // md5加密是将数据加密成32为密文 且不可逆
+
+      // 无法解密
+
+      console.log(str1 == md5("张三aa22.*(&^%"));
+    </script>
+  </body>
+</html>

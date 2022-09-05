@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // coolie 只在有服务启动的 http https 协议起作用
+    // 存
+    document.cookie = "num = 100";
+    console.log(document.cookie);
+
+    // 本地存储
+    window.localStorage;
+    window.sessionStorage;
+
+    console.log(localStorage); // 永久存储
+    console.log(sessionStorage); // 临时存储、关闭记清楚
+
+    // 本地储存
+    // 存
+    // localStorage.setItem("name1", "张三");
+    // localStorage.setItem("name2", "翠花");
+    // localStorage.setItem("name3", "李四");
+
+    // 取
+    console.log(localStorage.getItem("name2"));
+
+    // 删除
+    localStorage.removeItem("name1");
+    // 清空
+    // localStorage.clear();
+
+    // 会话储存
+    // 存
+    sessionStorage.setItem("name1", "张三");
+    sessionStorage.setItem("name2", "翠花");
+    sessionStorage.setItem("name3", "李四");
+
+    // 获取
+    console.log(sessionStorage.getItem("name2"));
+
+    // 删
+    sessionStorage.removeItem("name1");
+
+    // 清空
+    // sessionStorage.clear();
+  </script>
+</html>

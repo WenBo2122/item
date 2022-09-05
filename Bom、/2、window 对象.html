@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window 对象</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- window 对象 -->
+
+    <button id="btn1">弹窗</button>
+    <button id="btn2">询问框</button>
+    <button id="btn3">输入框</button>
+    <button id="btn4">打开 open</button>
+    <button id="btn5">关闭 close</button>
+    <button id="btn6">改变打开新窗口的位置 moveTo</button>
+    <button id="btn7">改变打开新窗口的大小 resizeTo</button>
+    <script>
+      var n1 = 100;
+      var n2 = 200;
+      // var nane = '博'  // 不能给变量名命名为 name 会和 window 对象自身默认name起冲突
+      console.log(window);
+      btn1.onclick = function () {
+        window.alert("弹窗");
+      };
+      btn2.onclick = function () {
+        window.confirm("确定要这么做吗");
+      };
+      btn3.onclick = function () {
+        window.prompt("请输入姓名");
+      };
+      btn4.onclick = function () {
+        // window.open('url地址,'打开的方式(_blank 或 _self)'，'新窗口的宽、高、位置')
+        window.open(
+          "../Dom、/01_关于javascript.html",
+          "_blank",
+          "while = 200,height = 300,left = 200,top = 200"
+        );
+      };
+      btn5.onclick = function () {
+        window.close();
+      };
+      // 以下两种方法在 open 打开的窗口可以起作用
+      // 改变打开新窗口的位置
+      btn6.onclick = function () {
+        window.moveTo(300, 300);
+      };
+      // 改变打开新窗口的大小
+      btn7.onclick = function () {
+        window.resizeTo(500, 300);
+      };
+
+      // window.setInterval;
+      // window.setTimeout;
+
+      // window.clearInterval;
+      // window.clearTimeout;
+
+      // setInterval(function () {}, 1000);
+      let id = setInterval(() => {
+        console.log("啧啧");
+      }, 1000);
+      console.log(id); // 定时器的编号
+
+      // 属性
+      console.log(window.innerHeight); // 高
+      console.log(window.innerWidth); //宽
+      console.log(window.outerWidth); // 外宽
+      console.log(window.outerHeight); // 外高
+
+      // window 的事件监听
+      window.scroll = function (e) {
+        console.log(e);
+      };
+
+      // 尺寸发生改变的时候触发此程序
+      window.onresize = function () {
+        console.log("尺寸发生改变的时候触发此程序");
+        console.log(window.innerWidth);
+      };
+    </script>
+  </body>
+</html>

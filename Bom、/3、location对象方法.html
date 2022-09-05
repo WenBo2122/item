@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn1">刷新</button>
+    <button id="btn2">跳转</button>
+    <button id="btn3">替换</button>
+
+    <script>
+      // 刷新
+      btn1.onclick = function () {
+        location.reload();
+      };
+      // 跳转
+      btn2.onclick = function () {
+        location.assign("./login.html");
+      };
+      // 替换 // 没有历史记录
+      btn3.onclick = function () {
+        location.replace("./login.html");
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>history</title>
+  </head>
+  <body>
+    <button id="btn1">前进</button>
+    <button id="btn2">后退</button>
+    <button id="btn3">go</button>
+
+    <a href="./index.html">index</a>
+    <script>
+      console.log(history);
+      btn1.onclick = function () {
+        history.forward(); // 前进
+      };
+      btn2.onclick = function () {
+        history.back(); // 后退
+      };
+      btn3.onclick = function () {
+        // 不能超出浏览器对 js 的访问权限
+        history.go(1); // 随便前进后退
+      };
+    </script>
+  </body>
+</html>

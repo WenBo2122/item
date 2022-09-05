@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 临时存储  会话存储
+      document.cookie = "aaa = 张三";
+      document.cookie = "bbb = 李四";
+      document.cookie = "ccc = 王二";
+
+      // 永久存储  设置过期时间 Expires/max-age
+      // document.cookie = `key1 = abc;max-age = 3600`; // 单位是秒
+      let day = new Date("2022-8-27");
+      // expires 过期时间、格式是国际标准时间
+      // document.cookie = `key2 = abc;expires = ${day}`;
+      document.cookie = `key2 = 0;max-age = -1`;
+
+      // 读取
+      console.log(document.cookie);
+
+      // 允许某个域名访问 cookie domain
+      document.cookie = "key3=123;max-age=3600;domain=localhost";
+
+      // 路径 path 写入cookie到文本及目录/Bom、之下
+      document.cookie = "key4=333;max-age=3600;path/Bom、";
+
+      // httponly httponly = true 禁止 js 访问 cookie
+
+      // 前端不能通过 js 去设置一个 HttpOnly 类型的 cookie、这种类型的cookie只能是后端来设置
+      // 只要是HttpOnly 类型的通过 document.cookie 是获取不到的 也不能进行修改
+
+      // secure 只允许 https 协议传输
+      document.cookie = `key11=111;max-age;secure=true`;
+    </script>
+  </body>
+</html>

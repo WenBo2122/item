@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 封装 ------ 服用
+      // 设置cookie -- setCookie
+      // 获取cookie --- getCookie
+      // 删除cookie --- removeCookie
+
+      // 设置cookie;
+      function setCookie(key, val, maxAge) {
+        document.cookie = `${key}=${val};max-age=${maxAge}`;
+      }
+
+      // 删除cookie
+      function removeCookie(key) {
+        setCookie(key, 0, -1); // 时间过期
+      }
+
+      // 获取cookie
+      function getCookie(key) {
+        // 结果
+        let v = null;
+        // 读取 cookie
+        let cookieStr = document.cookie;
+        let cookieArr = cookieStr.split("; ");
+        cookieArr.forEach((c) => {
+          console.log(c);
+          let keyVal = c.split("=");
+          if (keyVal[0] == key) {
+            console.log(keyVal[1]);
+            v = keyVal[1];
+          }
+        });
+        return v;
+      }
+
+      setCookie("username", "wb", 60); // 存
+      setCookie("age", 18, 3600); // 存
+      setCookie("gender", 1, 60 * 60 * 24 * 7); // 存
+      setCookie("hobby", "敲键盘", 60 * 60 * 24 * 30); // 存
+      setCookie("birthday", "12-22", 60 * 60 * 24 * 360); // 存
+
+      removeCookie("hobby");
+
+      getCookie("age");
+    </script>
+  </body>
+</html>
