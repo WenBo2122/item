@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        width: 220px;
+        background-color: #333;
+        padding: 15px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 20px;
+        color: bisque;
+      }
+      p span {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        line-height: 50px;
+        color: #333;
+      }
+      button {
+        width: 160px;
+        height: 35px;
+      }
+      .change {
+        background-color: red;
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- 如果字符串二点内容时数字的话也可以通过类型转换进行运算 -->
+      <p><span id="span1">01</span>分<span id="span2">3</span>秒</p>
+      <button>开始</button>
+    </main>
+
+    <script>
+      // 获取 span1 标签 和 span2 标签
+      var span1 = document.querySelector("#span1");
+      var span2 = document.querySelector("#span2");
+      var button = document.querySelector("button");
+
+      // 获取内容
+      var num1 = span1.innerHTML;
+      var num2 = span2.innerHTML;
+
+      // 声明一个变量来点击次数
+      var count = 0;
+
+      // 声明一个变量来记录 setinterval
+      var time;
+
+      // 当点击按钮的时候
+      button.onclick = function () {
+        // 点击次数增加
+        count++;
+        if (count % 2 == 1) {
+          time = setInterval(() => {
+            num2--;
+            // 根据 num2 的值，判断后续情况应该如何
+            if (num2 < 0) {
+              num1--;
+              num2 = 3;
+              if (num1 < 0) {
+                num1 = 0;
+                num2 = 0;
+              }
+              span1.innerHTML = num1;
+            }
+            span2.innerHTML = num2;
+          }, 1000);
+          // 先写好样式然后再存在一个 class 下 当一个标签想要应用这样一堆样式的时候 就把 className 填上即可
+          button.className = "change";
+          button.innerHTML = "暂停";
+        } else {
+          // 清楚时间间隔
+          clearInterval(time);
+          button.innerHTML = "开始";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jscript高级+ES6</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      // es6中没有变量提升 必须先定义类 才能通过类实例化对象
+      // 类里面的共有属性个方法一定要加 this 使用
+
+      // ************************* 创建类和对象 *************************
+      // 通过 class 关键字创建类，类名我们还是习惯定义首字母大写
+      // 类里面有个 constructor 函数 可以接收传递过来的参数，同时返回实例对象
+      // constructor 函数 只要 new 生成实例  就会自动调用这个函数  如果我们不写这个函数 类也会自动生成这个函数
+      // 生成实例 new 不能省略
+      // 语法规范  创建类 类名后面不加小括号  生成实例 类名后面要加  构造函数不需要 function
+      // 创建类 class 创建一个明星类
+      // class Start {
+      //   // 类共有的属性放到 constructor 里面
+      //   constructor(uname, age) {
+      //     this.uname = uname;
+      //     this.age = age;
+      //   }
+      // }
+      // // 利用类创建对象 new
+      // var ldh = new Start("刘德华", 18);
+      // var zxy = new Start("张学友", 20);
+      // console.log(ldh, zxy);
+
+      // ************************* 类中添加方法 *************************
+      // 创建类 class 创建一个明星类
+      // class Start {
+      //   // 类共有的属性放到 constructor 里面
+      //   constructor(uname, age) {
+      //     this.uname = uname;
+      //     this.age = age;
+      //   }
+      //   // 类里面所有的函数不需要加 function  多个函数方法之间不能使用逗号分隔
+      //   sing(song) {
+      //     console.log("我会唱歌");
+      //     console.log(this.uname + song);
+      //   }
+      // }
+      // // 利用类创建对象 new
+      // var ldh = new Start("刘德华", 18);
+      // var zxy = new Start("张学友", 20);
+      // console.log(ldh, zxy);
+      // ldh.sing("冰雨");
+      // zxy.sing("李香兰");
+
+      // ************************* 类的继承 *************************
+      // 类的继承
+      // class Father {
+      //   constructor() {}
+      //   money() {
+      //     console.log(100);
+      //   }
+      // }
+      // // 子类 Son 继承 父类 Father
+      // class Son extends Father {}
+      // var son = new Son();
+      // son.money();
+      // ************************* super 关键字的使用 *************************
+      // class Father {
+      //   constructor(x, y) {
+      //     this.x = x;
+      //     this.y = y;
+      // }
+      //   sum() {
+      //     console.log(this.x + this.y);
+      //   }
+      // }
+      // // 子类 Son 继承 父类 Father
+      // class Son extends Father {
+      //   constructor(x, y) {
+      //     super(x, y); //调用了父类中的构造函数
+      //   }
+      // }
+      // var son = new Son(1, 2);
+      // son.sum();
+      // ************************* super 关键字调用父类普通函数 *************************
+      // class Father {
+      //   say() {
+      //     return "我是爸爸  ";
+      //   }
+      // }
+      // class Son extends Father {
+      //   say() {
+      //     console.log("我是儿子");
+      //     console.log(super.say() + "的儿子");
+      //     // super.say() 就是调用父类中的普通函数 say()
+      //   }
+      // }
+      // var son = new Son();
+      // son.say();
+      // 继承中的属性或者方法打查找原则：就近原则
+      // 继承中  如果实例化对象子类输出一个方法  先看子类有没有这个方法如果有就先执行子类
+      // 继承中  如果子类里面没有  就去查找父类有没有这个方法 如果有就执行父类的这个方法（就近原则）
+
+      // ************************* 子类继承父类方法同时扩展自己方法 *************************
+      // 父类有加法方法
+      // class Father {
+      //   constructor(x, y) {
+      //     this.x = x;
+      //     this.y = y;
+      //   }
+      //   sum() {
+      //     console.log(this.x + this.y);
+      //   }
+      // }
+      // // 子类继承父类加法方法 同时 扩展 减法方法
+      // class Son extends Father {
+      //   constructor(x, y) {
+      //     // 利用 super 调用父类的构造函数
+      //     // 子类在构造函数中使用 super 必须放到子类 this之前
+      //     // 必须先调用父类的构造方法 在使用子类的构造方法
+      //     super(x, y);
+      //     this.x = x;
+      //     this.y = y;
+      //   }
+      //   subtract() {
+      //     console.log(this.x - this.y);
+      //   }
+      // }
+      // var son = new Son(5, 3);
+      // son.subtract();
+      // son.sum();
+
+      // ************************* this的指向问题 *************************
+      // var that;
+      // var _that;
+      // class Star {
+      //   constructor(uname, age) {
+      //     that = this;
+
+      //     // constructor 里面的 this 指向的是 创建的实例对象 Star
+      //     console.log(this);
+
+      //     this.uname = uname;
+      //     this.age = age;
+      //     // this.sing();
+      //     this.btn = document.querySelector("button");
+      //     this.btn.onclick = this.sing;
+      //   }
+      //   sing() {
+      //     // 这个 sing 方法里面的 this 指向的是 btn 这个按钮 因为这个按钮调用了这个函数
+      //     console.log(this);
+      //     console.log(that.uname); // 里面储存的是 constructor 里面的 this
+      //   }
+      //   dance() {
+      //     // 这个 dance 里面的 this 指向的是实例对象 ldh 因为ldh调用了这个函数
+      //     _that = this;
+      //     console.log(this);
+      //     console.log(_that);
+      //   }
+      // }
+      // // 创建一个实例对象
+      // var ldh = new Star("刘德华", 18);
+
+      // console.log(that === ldh);
+      // ldh.dance();
+      // console.log(_that === ldh);
+    </script>
+  </body>
+</html>

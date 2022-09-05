@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打地鼠</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      html,body{
+        width: 100%;
+        height: 100%;
+      }
+      body{
+        background-image: url(./image/bg.jpg);
+        cursor: url(./image/cursor.png), auto;
+      }
+      table{
+        width: 60%;
+        height: 60%;
+        margin: 0 auto;
+      }
+      td{
+        height: 150px;
+        background: url(./image/hole.png) no-repeat;
+        background-size: 120px 50px;
+        background-position: center bottom;
+        text-align: center;
+        /* 垂直方向的定位  父类元素要有高度  不能是块元素 */
+        vertical-align: bottom;
+      }
+      img{
+        width: 80px;
+        height: 0px;
+        margin: 8px;
+      }
+
+      .mouseUp{
+        animation: up 0.3s linear both;   /* both 停留在结束的位置 */
+      }
+      @keyframes up {
+        0%{
+          height: 0;
+        }
+        100%{
+          height: 70px;
+        }
+      }
+
+      .mouseDown{
+        animation: down 0.3s linear both;   /* both 停留在结束的位置 */
+      }
+      @keyframes down { 
+        0%{
+          height: 70px;
+        }
+        100%{
+          height: 0;
+        }
+      }
+
+
+    </style>
+  </head>
+  <body>
+        <!--段落标签-->
+        <p id="score">得分0</p>
+        <audio id="dazhong"></audio>
+        <!-- audio 音频标签 -->
+        <audio src="audio/music.mp3" autoplay loop=></audio>
+        
+        <!--table就是表的意思，意味着横纵对齐，
+        并且每一行每一列都有对应单元格，table元素一般由一个或多个，th,tr,td
+        th:定义表的标题，表头，tr：定义表格行 td：定义单元格-->
+    <table>
+      <!--第一行-->
+      <tr>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+      </tr>
+      <!--第二行-->
+      <tr>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+      </tr>
+      <!--第三行-->
+      <tr>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+        <td><img src="image/mouse.png" alt="" /></td>
+      </tr>
+    </table>
+
+    <script>
+      // --------------------- 逻辑 ---------------------
+      // 分数
+      var score  = 0
+      // 获取所有的 img图片 返回的是一个数组
+      var mouses = document.querySelectorAll('img')
+
+      function show() {
+        // 1、获取随机数 0-11
+        var random = Math.random() * 12
+        // 获取 0-11 随机整数
+        random = Math.floor(random)
+        // 2、获取 mouses 随机 数组内容
+        var mouse = mouses[random]
+        console.log(mouse);
+        // 3、赋一个 mouseUp class名
+        mouse.className = ''
+        mouse.className = 'mouseUp'
+
+        setTimeout( function () {
+          mouse.className = ''
+          mouse.className = 'mouseDown'
+        }, 2000);
+
+        // 点击地鼠事件
+        mouses[random].onclick = function click() {
+          
+          mouse.className = ''
+          mouse.className = 'mouseDown'
+          score +=10
+          document.querySelector('#score').innerText = "得分" + score
+
+          // 点击添加音频
+          var audio1 = document.querySelector('#dazhong');
+          audio1.src = './audio/dazhong.wav'
+          audio1.play()
+        }
+      }
+      // 每次出现 3 只地鼠
+      function showMouse(){
+        show()
+        show()
+        show()
+      }
+      setInterval(showMouse,1000)
+      // 鼠标点击按下事件
+      document.body.onmousedown = function () {
+        document.body.style.cursor = 'url(./image/cursor-down.png),auto'
+      }
+      // 鼠标点击松开事件
+      document.body.onmouseup = function () {
+        document.body.style.cursor = 'url(./image/cursor.png),auto'
+      }
+    </script>
+  </body>
+</html>

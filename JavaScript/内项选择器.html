@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #first {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+      button {
+        width: 50px;
+        height: 50px;
+        background-color: lightpink;
+      }
+      .color {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="first"></div>
+    <button id="button1"></button>
+    <div class="color"></div>
+  </body>
+  <script>
+    // document.querySelector 查询选择器
+    // 找到 id 为 first 的标签
+    document.querySelector("#first");
+    document.getElementById("first");
+
+    // 创建标签
+    var f = document.createElement("div");
+    f.style.width = "100px";
+    f.style.height = "100px";
+    f.style.backgroundColor = "red";
+
+    // 渲染到页面
+    document.body.appendChild(f);
+
+    // 点击事件
+    var b = document.getElementById("button1");
+    b.onclick = function (el) {
+      // alert("点击了");
+      b.style.width = "100px";
+      b.style.height = "100px";
+      b.style.transition = "all 1s";
+    };
+
+    // 获取 标签 类名
+    // 点击改变颜色
+    // var a = document.querySelector(".color");
+    // console.log(a);
+    // var ChangeColor = true;
+    // a.onclick = function (e) {
+    //   if (ChangeColor) {
+    //     a.style.backgroundColor = "red";
+    //   } else {
+    //     a.style.backgroundColor = "pink";
+    //   }
+    //   ChangeColor = !ChangeColor;
+    //   console.log(ChangeColor);
+    // };
+
+    // 三色变换
+    var a = document.querySelector(".color");
+    var ChangeColor = 2;
+    a.onclick = function () {
+      if (ChangeColor == 1) {
+        a.style.backgroundColor = "Pink";
+        ChangeColor = 2;
+      } else if (ChangeColor == 2) {
+        a.style.backgroundColor = "red";
+        ChangeColor = 3;
+      } else if (ChangeColor == 3) {
+        a.style.backgroundColor = "yellow";
+        ChangeColor = 1;
+      }
+      console.log(ChangeColor);
+    };
+  </script>
+</html>

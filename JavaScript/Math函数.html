@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math函数</title>
+  </head>
+  <body>
+    <script>
+      // <!-- Math 函数 -->
+      // 使用 Math Numbor  Date  String  Array 创建的对象都是使用系统的内置方法
+      // 这些方法都是 js 内置的 如果需要实现某种效果  只需要调用相对应的方法即可
+      // 随机函数  范围 大于等于 0  小于等于 1
+      // 一旦需要写随机事件的项目  就想这个函数
+      var random = Math.random();
+      random = random * 10;
+      // 取大于等于 5 小于 15
+      // 重点在于取边界值
+      // 进阶操作就是随机函数与数组的结合
+      var random1 = Math.random() * 10 + 5;
+      var random2 = Math.random() * 10 + 5;
+      // console.log(random);
+
+      // 向下取整
+      random1 = Math.floor(random1);
+      // console.log(random1);
+
+      // 向上取整
+      random2 = Math.ceil(random2);
+      // console.log(random2);
+
+      // 四舍五入
+      random1 = Math.round(random1);
+      // console.log(random1);
+
+      // Number toFixde 保留几位小数
+      var num = Math.random() * 5;
+      num = num.toFixed(2);
+      // console.log(num);
+
+      // array 的内置方法  indexOf 查找数组中是否有重复的元素 有返回索引值 没有返回 -1
+      var arr = [1, 2, 3, 4, 5];
+      var a = 3;
+      var result = arr.indexOf(a);
+      // console.log(result);
+
+      // break 跳出
+      function jump() {
+        for (let i = 0; i < 10; i++) {
+          if (i % 2 == 1) {
+            continue; //跳出当前循环
+          }
+          if (i == 6) {
+            return; //直接跳出当前函数
+          }
+          if (i == 8) {
+            break; //跳出所有循环
+          }
+          console.log(i);
+        }
+        console.log("跳出了当前循环");
+      }
+      // jump();
+
+      // 取 1 -100 之间 的任意不重复的 10 个 整数 放入到一个数组里
+      var arr1 = [];
+      // function quzheng() {
+      //   for (let i = 0; i < 20; i++) {
+      //     var random = Math.floor(Math.random() * 101);
+      //     // 出现重复的时候 不会添加这样导致数量不足
+      //     if (arr1.indexOf(random) < 0) {
+      //       arr1.push(random);
+      //     }
+      //     if (arr1.length == 10) {
+      //       break;
+      //     }
+      //   }
+      //   console.log(arr1);
+      // }
+      // quzheng();
+
+      // 第二种方法
+      function show() {
+        var random = Math.floor(Math.random() * 101);
+        // indexOf 查找数组中是否有重复的元素 有返回索引值 没有返回 -1
+        if (arr1.indexOf(random) < 0) {
+          arr1.push(random);
+        }
+        console.log(arr1);
+        if (arr1.length == 10) {
+          return;
+        }
+        show();
+      }
+      show();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 变量或者函数在取名的时候  要避开系统中的关键词
+      var str = "name is zhangSan aaa AAAA is his English";
+
+      // 检索字符串 默认找到第一个值就会停止
+      // ********** match() 检索内容 找到字符串里的某个值 **********
+      // match(/检索内容/g)  g是执行全局搜索  直到匹配到后一项  (找到所有的 zhangsan)  默认对大小写敏感
+      // i 对大小写不敏感
+      var str1 = str.match(/zhangSan/gi);
+      // console.log(str1);
+
+      // ********** replce(/旧值/新值(字符串类型 ) 替换 **********
+      var str2 = str.replace(/zhangSan/gi, "lisi");
+      console.log(str2);
+
+      // ********** search() 检测当前字符串中是否包含匹配条件的内容 **********
+      // 如果包含会返回索引位置  如果没有就返回 -1
+      var str3 = str.search(/zhangSan/);
+      console.log(str3);
+    </script>
+  </body>
+</html>

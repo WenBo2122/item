@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>循环</title>
+  </head>
+  <body></body>
+  <script>
+    // 在 js 种可以不用写分号 一般写分号的语言就是分号前就是一句代码
+    // 当你不写分号的时候 一行就是一句代码
+    // 当代码想要重复执行的时候 就可以使用循环语句
+    // 第一次进入括号的时候 i 的初始值，当 i 循环的范围 每次循环 i 的变化
+    for (var i = 0; i <= 10; i++) {
+      if (i % 2 == 1) {
+        console.log(i);
+      }
+    }
+
+    // 计算1 - 100 的和
+    var num = 0;
+    for (let i = 0; i <= 100; i++) {
+      num += i;
+    }
+    console.log(num);
+
+    // 计算 1 - 100 所有奇数的和
+    var num = 0;
+    for (let i = 0; i <= 100; i += 2) {
+      num += i;
+    }
+    console.log(num);
+  </script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 240px;
+        height: 160px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #333;
+        color: #333;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .box div {
+        float: left;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background-color: wheat;
+      }
+      .box .time {
+        background-color: white;
+      }
+      button {
+        width: 100%;
+        height: 50px;
+        margin-top: 20px;
+        background-color: #fff;
+        transition: all 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="time minute">01</div>
+      <div>分钟</div>
+      <div class="time second">59</div>
+      <div>秒钟</div>
+      <button>开始</button>
+    </div>
+    <script>
+      // 获取 minute second 标签
+      // 分
+      var minute = document.querySelector(".minute");
+      var minuteText = minute.innerHTML;
+      // 秒
+      var second = document.querySelector(".second");
+      var secondText = second.innerHTML;
+
+      // console.log(minute, second);
+      var Interval;
+      var br = true;
+      // 获取按钮
+      var buttonClick = document.querySelector("button");
+
+      buttonClick.onclick = function () {
+        if (br === true) {
+          // 点击变色
+          buttonClick.style.background = "lightpink";
+          Interval = setInterval(() => {
+            secondText--;
+            // 判断 如果小秒 小于1 secondText 变成 59
+            if (secondText < 0) {
+              secondText = 59;
+              minuteText--;
+              minute.innerHTML = minuteText;
+            }
+            second.innerHTML = secondText;
+            if (secondText == 0 && minuteText == 0) {
+              minute.innerHTML = minuteText = 1;
+              second.innerHTML = secondText = 59;
+              // 清楚时间间隔
+              clearInterval(Interval);
+              br = true;
+            }
+          }, 100);
+          buttonClick.innerHTML = "暂停";
+        } else {
+          // 清楚时间间隔
+          clearInterval(Interval);
+          buttonClick.innerHTML = "开始";
+          // 点击变色
+          buttonClick.style.background = "white";
+        }
+        br = !br;
+        console.log(br);
+      };
+    </script>
+  </body>
+</html>

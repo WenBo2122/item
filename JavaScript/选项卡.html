@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选项卡</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+      main {
+        width: 70%;
+        height: 500px;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+      .tabList {
+        background-color: #333;
+        color: #fff;
+        overflow: hidden;
+      }
+      .tabList li {
+        float: left;
+        border: 1px solid #333;
+        padding: 15px 25px;
+      }
+      .tabCon {
+        padding: 20px 30px;
+      }
+      .tabCon > div {
+        display: none;
+      }
+      .tabCon .active {
+        display: block;
+      }
+      .click {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- 第一部分 -->
+      <ul class="tabList">
+        <li class="click">第一课</li>
+        <li>第二课</li>
+        <li>第三课</li>
+      </ul>
+      <div class="tabCon">
+        <div class="active">
+          <h2>第一颗标题</h2>
+          <ul>
+            <li>HTML</li>
+            <li>HTML</li>
+            <li>HTML</li>
+          </ul>
+        </div>
+        <div>
+          <h2>第二颗标题</h2>
+          <ul>
+            <li>CSS</li>
+            <li>CSS</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+        <div>
+          <h2>第三颗标题</h2>
+          <ul>
+            <li>JS</li>
+            <li>JS</li>
+            <li>JS</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script>
+      // 当鼠标点击点 .tabList 里面的 li 标签时  .tabCon 里面的 div会显示出来  就是添加 className
+      // 获取 .tabList 的所有 li 用数组形式储存的
+      var lis = document.querySelectorAll(".tabList li");
+      var divs = document.querySelectorAll(".tabCon div");
+      console.log(lis, divs);
+      // 当点击 lis 中对应的元素时 ，dis 中对应的元素显示出来
+      // lis[1].onclick = function () {
+      //   console.log(lis[1]);
+      //   // this 是一个代词 指代点的对象
+      //   this.className = "click";
+      //   lis[0].className = "";
+      // };
+      for (var i = 0; i < lis.length; i++) {
+        // 因为 lis[i] 这个对象里面有一个 index 这个属性
+        // 所以当进入循环的时候，把 i 这个值存入到 index 这个属性
+        lis[i].index = i;
+        console.log(lis[i].index);
+        // 当点击索引里面的标签时 触发的方法
+        lis[i].onclick = function () {
+          // 清空所有的标签的 class 清空
+          for (let j = 0; j < lis.length; j++) {
+            lis[j].className = "";
+            divs[j].className = "";
+          }
+          // 点中标签的索引
+          this.className = "click";
+          divs[this.index].className = "active";
+          console.log(this.index);
+        };
+      }
+    </script>
+  </body>
+</html>

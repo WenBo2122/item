@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象类型</title>
+  </head>
+  <body>
+    <script>
+      // 面向对象的语言
+      // C 语言这一类的是面向过程的语言
+      //  对象在 js中就是属性和方法的集合  其实就是一句代码的主语
+      // 对象就是个抽象概念 是一个代词 一般而言我们让谁干活 对象就是谁
+      // document 就是对象
+      document.querySelector("#first");
+      // object
+      var obj = {
+        uname: "博",
+        age: 22,
+        isMale: true,
+        height: 185,
+        say: function () {
+          console.log("郑凯旋能放飞天螺旋屁");
+        },
+      };
+      var name = obj.uname;
+      // console.log(name);
+      // obj.say();
+
+      // *********************  游戏  ***********************
+      var yaSuo = {
+        gongJi: 100,
+        fangYu: 50,
+        HP: 998,
+        MP: 0,
+      };
+
+      var aike = {
+        gongJi: 100,
+        fangYu: 50,
+        HP: 999,
+        MP: 200,
+        shiKong: function () {
+          console.log("回到4秒之前，并嘲讽你是猪");
+        },
+        ZquDong: function (diRemXueLiang) {
+          if (diRemXueLiang <= 200) {
+            console.log("直接送你回老家");
+          } else {
+            console.log("给你一个大比兜并造成" + this.gongJi * 0.8 + "点伤害");
+          }
+        },
+      };
+      // aike.shiKong();
+      // aike.ZquDong(yaSuo.HP);
+
+      let obj2 = {
+        uname: "小明",
+        age: "18",
+        sex: "男",
+      };
+      // 遍历对象及属性
+      // 快速遍历
+      //  key 变量
+      // for (let key in obj2) {
+      //   console.log(key); // 得到属性名
+      //   console.log(obj2[key]); // 得到属性值
+      //   console.log(obj2["uname"]);
+      //   console.log(obj2["age"]);
+      // }
+
+      // 请输出对象的名字 小明
+      console.log(obj2.uname);
+      console.log(obj2["uname"]);
+      // 遍历对象
+      for (const key in obj2) {
+        console.log(typeof key); //到的的是带字符串额属性名
+        // k === 'uname'  ==='age' ==='sex'
+        console.log(key);
+        // console.log(obj.key);  //不可行
+        console.log(obj2["uname"]);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 在 js 数据类型会根据所赋值自动转换为对应的类型
+      // 在 js中有七种常用数据类型 5种基本数据 2种复杂数据类型类型(引用类型)
+      // 1数字类型
+      // 数字类型
+      var num = 1;
+      var num1 = 1.1;
+
+      // 查看变量的数据类型
+      // stering 字符串 number boolen nudefined object(对象类型)
+      console.log(typeof num);
+
+      // 2 布尔类型, 他只有 true 和 false 两个值
+      var bool1 = true;
+      var bool2 = false;
+      console.log(typeof bool1);
+
+      // 3 字符串  带引号的都是字符串,能够显示在页面上
+      var string1 = "123一二三";
+      var string2 = "123一二三";
+
+      // 4 andefined 未声明的
+      var und;
+
+      // 5 空的变量
+      var un2 = null;
+
+      // 复杂的 (引用类型)
+      // 该类型的值可以存储多种基本数据类型的
+
+      // 数组类型 array 数组最重要的特点 存储的数据是按顺序存储
+      // 数组从零开始 依次往后
+      var arr = ["abc", 12, true];
+      console.log(arr);
+      console.log(arr[1]);
+
+      // 对象类型 object  键值对  找到对象中的键 就找到对应的值
+      // 对象类型的内部没有顺序
+      var obj = {
+        uname: "博",
+        age: 18,
+        height: 185,
+      };
+      console.log(obj.uname, obj.age);
+    </script>
+  </body>
+</html>

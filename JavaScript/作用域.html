@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作用域</title>
+  </head>
+  <body></body>
+  <script>
+    // 作用域 创建变量的时候 每个变量都有其所在二点作用域 也就是除了他们所在的方法大括号就无法使用 （ 这块内存会被释放掉 ）
+    // 所以一个方法的变量只能在当前方法中使用
+    // 写在最外层的可以成为全局变量
+    var b = 10;
+    function add() {
+      var a = 1;
+      if ((a = 1)) {
+        var c = 20;
+      }
+      console.log(c);
+    }
+    add();
+    console.log(a);
+  </script>
+</html>

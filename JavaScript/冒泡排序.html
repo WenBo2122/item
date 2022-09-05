@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 变量转换
+      var a = 1;
+      var b = 2;
+      var c = a;
+      a = b;
+      b = c;
+      // console.log(a, b);
+
+      // var arr = [11, 22, 7, 4, 88, 21];
+      // for (let i = 0; i < arr.length; i++) {
+      //   for (let j = 0; j < arr.length; j++) {
+      //     if (arr[j] > arr[j + 1]) {
+      //       var a = arr[j];
+      //       arr[j] = arr[j + 1];
+      //       arr[j + 1] = a;
+      //     }
+      //   }
+      // }
+      // console.log(arr);
+
+      // 冒泡排序就是数组中从第一个元素开始依次和下一个元素进行大小对比
+      // 取最大值时就是当下一个元素比后上元素大 就赋给变量值比较完全部
+
+      // var a = arr[0];
+      // for (let i = 0; i < arr.length; i++) {
+      //   if (arr[i] > a) {
+      //     a = arr[i];
+      //   }
+      // }
+
+      // 排序的话 就是让两个相邻的元素进行大小比较 ， 如果后裔比前一个大就交换顺序
+      // 排序的话，就是让两个相邻的元素进行大小比较  如果后一个比前一个大就交换顺序
+      // 将最大的排到最后 如果想要循序排列 就需要依次做这个操作
+      var arr = [11, 22, 7, 4, 88, 21];
+      for (let i = 0; i < arr.length - 1; i++) {
+        // 当实现的效果表述不出来的时候 就找值试试
+        for (let j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            // 记录准备交换的值
+            var s = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = s;
+          }
+        }
+      }
+      console.log(arr);
+    </script>
+  </body>
+</html>

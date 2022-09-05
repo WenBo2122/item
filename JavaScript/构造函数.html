@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 对象是一系列属性和方法的集合
+    // 构造函数， 就是写一个模板、通过该模板能够创造出不同类型的对象
+    // 特点 1、函数的首字母大写
+    // 2、函数内部使用 this 这个关键词 通过 this 给这个构造函数赋值
+    // 3、使用 new 关键词 通过来声明实例变量
+    // 4、默认的返回值也是 this 本身
+    // 所以构造函数其实就是一个模板、用来实例化模板中的对象 可以理解为 java 等语法中的类的概念
+    function Car(color, type) {
+      this.name = "宝马";
+      this.type = type;
+      this.color = color;
+      return this;
+    }
+    var car1 = new Car("pink", "320");
+    console.log(car1);
+
+    // 所有用 new 声明的对象都是对象类型
+    var str = new String("1234");
+    console.log(str);
+    // 判断 str 是否是 String 这个构造函数 创建的对象
+    console.log(str instanceof String);
+  </script>
+</html>

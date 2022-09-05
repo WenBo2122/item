@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // js 是一种弱类型引用类型语言 数据类型可以进行显式 和 隐式的转换
+      // 就是一个变量可以存储多种类型的数据
+      var a = 1;
+      console.log(a);
+      a = [1, 2];
+      console.log(a);
+      // 基本数据类型 srting number boolen undefine null
+      // 原始类型
+      // 原始类型的值被称之为原始值  存储在内存的栈（stack）中  有系统自己分配的
+      // 所占的空间时一定二点 （值都是存在这个变量里的）
+      var b = "aaa";
+
+      // 引用类型  数组 对象
+      // 引用数据类型的值 被称为引用值 存储在堆区（hack）中 由程序员分配的存储空间
+      // 存储在变量类型中的是个指针（地址/方向指向） 指针指向的就是系统内部存储值的空间
+
+      // arr 这个变量时声明在栈上的 里面储存的值得指针 指针指向的内存时堆上的
+
+      // 当我们想要取出 arr 中第 0 个元素的值时  实际上我们现在堆区找到 arr这个对象
+      // 找到它里面存在的第 0 个数据的地址 根据地址（指针）从栈区找到这个变量
+      var arr = [];
+      arr.push(1);
+      var c = arr[0];
+
+      // 一值的访问
+      // 原始值的特点 原始值无法进行修改  任何属性和方法都不能修改当前的值
+      // 只可能覆盖不能改变
+      var num = 12.7777712351231;
+      num.toFixed(2);
+      console.log(num);
+      var bool = true;
+      // 转为字符串
+      var bool1 = bool.toString();
+      console.log(bool);
+      console.log(bool1);
+
+      // 引用类型的特点1 引用值可以通过属性或者方法改变自身也可以增删改
+      var arr1 = [2, 2, 2];
+      arr1.push("lucy");
+      console.log(arr1);
+
+      var obj = { name: "张三" };
+      obj.age = 10;
+      console.log(obj);
+
+      // 栈 由操作系统自动分配内存和释放的 存放具体的数值 方法里的参数值 局部变量的值等等
+      // 堆 一般有程序员释放 如果程序员不释放 程序结束时 会被系统回收
+      // 因为缓存方式的不同
+      // 栈用的时一级缓存里面的诗句被调用的时候 一般处于存储空间中调用以后就立即被释放
+      // 堆是存放在二级缓存中 生命周期有虚拟机的垃圾回收算法决定
+    </script>
+  </body>
+</html>

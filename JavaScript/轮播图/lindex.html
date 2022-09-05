@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      .banner {
+        position: relative;
+        width: 490px;
+        height: 170px;
+        margin: 40px auto;
+        /* 光标样式 */
+        cursor: pointer;
+      }
+
+      .banner > div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .imgLis {
+        position: relative;
+        width: 100%;
+      }
+
+      .imgLis li {
+        position: absolute;
+      }
+      .imgLis .active {
+        display: block;
+      }
+
+      .imgLis img {
+        width: 100%;
+      }
+
+      .banner span {
+        display: none;
+        position: absolute;
+        top: 60px;
+        padding: 20px 10px;
+        background-color: rgba(22, 22, 22, 0.1);
+        color: #fff;
+        z-index: 9;
+      }
+      .banner .next {
+        right: 0;
+      }
+
+      span:hover {
+        display: block;
+        background-color: rgba(22, 22, 22, 0.4);
+      }
+      .banner:hover > div span {
+        display: block;
+      }
+
+      .iconLis {
+        position: absolute;
+        left: 180px;
+        bottom: 0;
+      }
+      .iconLis li {
+        float: left;
+        width: 10px;
+        height: 10px;
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 8px 8px;
+        cursor: pointer;
+      }
+      .iconLis li:hover {
+        background-color: red;
+      }
+      .iconLis li:active {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <div>
+        <span class="prey">&lt;</span>
+        <!-- 轮播图 -->
+        <ul class="imgLis">
+          <li><img src="./img/01.jpg" alt="" /></li>
+          <li><img src="./img/02.jpg" alt="" /></li>
+          <li><img src="./img/03.jpg" alt="" /></li>
+          <li><img src="./img/04.jpg" alt="" /></li>
+          <li><img src="./img/05.jpg" alt="" /></li>
+        </ul>
+        <span class="next">&gt;</span>
+        <ul class="iconLis">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 获取所有需要的标签
+    var imgLis = document.querySelectorAll(".imgLis li");
+    var iconLis = document.querySelectorAll(".iconLis li");
+    var div = document.querySelector(".banner");
+    var prey = document.querySelector(".prey");
+    var next = document.querySelector(".next");
+    var num = 0;
+    var time;
+    imgLis[0].style.display = "block";
+    // 1、手动轮播图
+    // 当鼠标放在圆点上、显示相对应的图片
+    // 圆点变红  其他的图片隐藏
+    for (let i = 0; i < iconLis.length; i++) {
+      iconLis[i].onmouseover = function () {
+        show(i);
+        // 当点中点的时候修改 num 使得 iconList 保持一致
+        num = i;
+      };
+    }
+
+    // 2、自动播放
+    function autoPlay() {
+      num++;
+      // lenth 是从 1 开始
+      // 索引是从 0 开始
+      if (num > imgLis.length - 1) {
+        num = 0;
+      }
+      show(num);
+    }
+    time = setInterval(autoPlay, 1000);
+
+    // 将显示 li 的代码封装成一个方法 能够循环使用
+    function show(i) {
+      for (let j = 0; j < imgLis.length; j++) {
+        imgLis[j].style.display = "none";
+        iconLis[j].style.background = "none";
+      }
+      // 当我们想要使用添加className 的方式来修改样式的时候
+      // 所以需要我们考虑标签选择器的优先级 因为加载顺序是后加载覆盖前面加载的
+      // 所以要保证 class里面的样式为后加载的
+      // imgLis[this.index].style.display = "block";
+      imgLis[i].style.display = "block";
+      // console.log(i);
+      iconLis[i].style.background = "black";
+      // 3、鼠标放在图片上的时候 停止轮播图
+      div.onmouseover = function () {
+        clearInterval(time);
+      };
+      // 4、鼠标离开的时候 继续轮播
+      div.onmouseleave = function () {
+        time = setInterval(autoPlay, 1000);
+      };
+      // 5、点击前后按钮切换图片
+      next.onclick = function () {
+        num++;
+        if (num >= iconLis.length) {
+          num = 0;
+        }
+        show(num);
+      };
+      prey.onclick = function () {
+        num--;
+        if (num < 0) {
+          num = iconLis.length - 1;
+        }
+        show(num);
+      };
+    }
+  </script>
+</html>

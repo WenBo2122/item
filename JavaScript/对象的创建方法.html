@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var zhangSan = {
+        name: "张三",
+        age: "18",
+      };
+      
+      var liSi = {};
+      // 往对象类型中添加数据
+      liSi.name = "李四";
+
+      var car = {};
+      car.color = "黑色";
+      car.name = "宝马";
+      car.type = "x7";
+      car.start = function () {
+        console.log("启动系统");
+      };
+      car.stop = function () {
+        console.log("刹车系统");
+      };
+      // console.log(car);
+      // car.start();
+
+      // 创建一批一摸一样的车
+      // 工厂模式： 将这个对象封装在一个放法里
+      // 用参数来传递
+      function creatCar(type) {
+        var car = {};
+        car.color = "黑色";
+        car.name = "宝马";
+        car.type = type;
+        car.start = function () {
+          console.log("启动系统");
+        };
+        car.stop = function () {
+          console.log("刹车系统");
+        };
+        return car;
+      }
+      var car1 = creatCar("X7");
+      console.log(car1);
+    </script>
+  </body>
+</html>

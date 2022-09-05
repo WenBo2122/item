@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      div {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 给这个标签一个记录属性的属性值 -->
+    <div class="first" title="时间减少">60</div>
+    <button>点击</button>
+  </body>
+  <script>
+    var a = 1;
+    function add() {
+      a++;
+      console.log(a);
+    }
+    // 每隔1000毫秒调用一次add这个方法
+    // setInterval(方法名,时间);
+    // setInterval(add,1000);
+    setInterval(function () {
+      a--;
+      // console.log(a);
+    }, 1000);
+    // 暂停1秒后，执行一次方法中的代码
+    setTimeout(add, 2000);
+
+    // 获取div中的数字
+    // 连续的对象掉方法就从左往右一个个看
+    // 全局变量
+    var divTime = document.querySelector(".first");
+    var divText = divTime.innerText;
+
+    // 这个倒计时，当我点击按钮的时候，1.获取标签里的值 2.让这个值--3.再把这个值
+    // 插入回原来的标签4.这个才做每隔1秒来一次
+
+    //获取按钮，绑定时间
+    var buttonClick = document.querySelector("button");
+    // 将time声明为全局变量
+    var time;
+    // 定义一个全局变量来记录按钮点击的次数
+    // 当我点击的时候希望他++，所以需要先定义为数字类型
+    var count = 0;
+    // 点击调用方法
+    buttonClick.onclick = function () {
+      // 因为在button中全局变量的值无法直接使用，需要一个值来接收
+      // 获取div中的值
+      // divText--
+      // 因为，我的目标是防止多次点击按钮的时候执行多次setInterval
+      // 所以当点击时候先清除掉上一个setInterval，这样就能保证只有setinterval
+      // 在运行
+      // 又因为每点击一次按钮就多创建了一个time，所以清除的找不到上一个time
+      // 因而把其设置全局变量，这样就能找到上一个time
+      count++;
+      // 因为点击第一次是开始，第二次是暂停，第三次是开始一次类推
+      // 所以点击次数奇数次的时候是开始，偶数次是暂停
+      if (count % 2 == 1) {
+        time = setInterval(function () {
+          divText--;
+          divTime.innerText = divText;
+          if (divText < 0) {
+            divText = 60;
+          }
+        }, 50);
+        // 1.判断出这句代码是起作用
+        // clearInterval(time);
+        // 把这个值插入到原先的div中
+        buttonClick.innerText = "点击";
+      } else {
+        clearInterval(time);
+        buttonClick.innerText = "开始";
+      }
+
+      //   if (time === true) {
+      //     interval = setInterval(function () {
+      //       divText--;
+      //       divTime.innerHTML = divText;
+      //       // 如果等于 0 则清楚 setInterval
+      //       if (divText == 0) {
+      //         clearInterval(interval);
+      //         divTime.innerHTML = divText = 60;
+      //         time = true;
+      //       }
+      //     }, 1000);
+      //   } else {
+      //     clearInterval(interval);
+      //   }
+      //   time = !time;
+      //   console.log(time);
+      // };
+    };
+  </script>
+</html>

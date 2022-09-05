@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个税计算器</title>
+  </head>
+  <body></body>
+  <script>
+    // 基本工资
+    var gongzi = prompt("请输入你的工资");
+    // 五险一金
+    var wxyj = 0;
+    // 计算五险一金
+    // 三险一金 = 基准工资 * 比例;
+    if (gongzi < 7662) {
+      wxyj = gongzi * 0.225;
+    } else {
+      wxyj = 7662 * 0.225;
+    }
+    // console.log("要交的五险一金为：" + wxyj + "元");
+    // 计算应纳税所得额应纳个人所得税税额
+    // 应纳税所得额 = 扣除三险一金后月收入 - 扣除标准;
+    var ynssde = gongzi - wxyj - 3500;
+    // console.log("计算应纳税所得额为：" + ynssde + "元");
+    // 计算结果
+    var result = 0;
+    // 应纳个人所得税税额
+    if (gongzi < 3500) {
+      alert("你不需要交税");
+    } else {
+      if (ynssde < 1500) {
+        // 应纳个人所得税税额 = 应纳税所得额 × 适用税率 - 速算扣除数
+        result = ynssde * 0.03 - 0;
+      } else if (ynssde > 1500 && ynssde < 4500) {
+        result = ynssde * 0.1 - 105;
+      } else if (ynssde > 4500 && ynssde < 9000) {
+        result = ynssde * 0.2 - 555;
+      } else if (ynssde > 9000 && ynssde < 35000) {
+        result = ynssde * 0.25 - 1005;
+      } else if (ynssde > 35000 && ynssde < 55000) {
+        result = ynssde * 0.3 - 2755;
+      } else if (ynssde > 55000 && ynssde < 80000) {
+        result = ynssde * 0.35 - 5505;
+      } else if (ynssde > 80000) {
+        result = ynssde * 0.45 - 13505;
+      }
+    }
+    // 实际工资
+    var y = gongzi - result - wxyj;
+
+    alert("应纳个人所得税税额为：" + result + "元");
+    alert("实际获得的工资为：" + y);
+
+    // 在 js 中 需要先整理好逻辑 让逻辑呈线性思路进行排列 当无法变为线性是就增加if判断
+
+    // *******************************************************
+    // 工资
+    // var gongZi = prompt("123");
+    // // 先判断要不要交税
+    // if (gongZi < 3500) {
+    //   alert("你不需要交税");
+    // } else {
+    //   var sxyj = 0;
+    //   if (gongZi > 7662) {
+    //     sxyj = 7662 * 0.225;
+    //   } else {
+    //     sxyj = gongZi * 0.225;
+    //   }
+    //   // alert(sxyj);
+    //   // 应纳税所得额
+    //   var ynssde = gongZi - sxyj - 3500;
+    //   // alert(ynssde);
+    //   // 应纳个人所得税税额
+    //   var result = 0;
+    //   if (gongZi <= 1500) {
+    //     result = ynssde * 0.03 - 0;
+    //   } else if (ynssde > 1500 && ynssde < 4500) {
+    //     result = ynssde * 0.1 - 105;
+    //   } else if (ynssde > 4500 && ynssde < 9000) {
+    //     result = ynssde * 0.2 - 555;
+    //   } else if (ynssde > 9000 && ynssde < 35000) {
+    //     result = ynssde * 0.25 - 1005;
+    //   } else if (ynssde > 35000 && ynssde < 55000) {
+    //     result = ynssde * 0.3 - 2755;
+    //   } else if (ynssde > 55000 && ynssde < 80000) {
+    //     result = ynssde * 0.35 - 5505;
+    //   } else if (ynssde > 80000) {
+    //     result = ynssde * 0.45 - 13505;
+    //   }
+    //   alert(result);
+    // }
+  </script>
+</html>
