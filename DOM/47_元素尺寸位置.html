@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        border: 5px solid red;
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      // 读取信息
+      var $box = document.querySelector(".box");
+      // 宽/高(width、height、border、padding、)
+      console.log($box.offsetWidth, $box.offsetHeight);
+      // 位置距离html页面最左最上的距离
+      console.log($box.offsetLeft, $box.offsetTop);
+
+      $box.onclick = function (e) {
+        console.log(e);
+
+        console.log("================client================");
+        // 位置、client 【客户端 === 可视区域】 离可视区域左上角的偏移坐标
+        console.log(e.clientX, e.clientY);
+
+        console.log("================page================");
+        // 位置、page 【页面 === 整个文档的区域】 离页面左上角的偏移坐标
+        console.log(e.pageX, e.pageY);
+
+        console.log("================screen================");
+        // 位置、screen 屏幕 屏幕左上角
+        console.log(e.screenX, e.screenY);
+        console.log("================layer================");
+
+        // IE、【如果有定位】参考 offset 的偏移坐标  【如果没有】参考 page 的偏移坐标
+        console.log(e.layerX, e.layerY);
+
+        console.log("================offset================");
+        // 火狐、事件源左上角的偏移坐标
+        console.log(e.offsetX, e.offsetY);
+      };
+    </script>
+  </body>
+</html>

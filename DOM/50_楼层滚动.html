@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: #ccc;
+      }
+
+      .main-wrap {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .main-wrap > div:nth-child(1) {
+        height: 1200px;
+        background-color: antiquewhite;
+      }
+      .main-wrap > div:nth-child(2) {
+        height: 1200px;
+        background-color: blue;
+      }
+      .main-wrap > div:nth-child(3) {
+        height: 1200px;
+        background-color: blueviolet;
+      }
+      .main-wrap > div:nth-child(4) {
+        height: 1200px;
+        background-color: blanchedalmond;
+      }
+
+      .f-nav {
+        position: fixed;
+        top: 200px;
+        right: 100px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+      .f-nav > div {
+        width: 40px;
+        height: 38px;
+        margin: 5px 0;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        cursor: pointer;
+      }
+      .f-nav > div:hover {
+        color: #fff;
+        background-color: red;
+      }
+      .on {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 页面 -->
+    <div class="main-wrap">
+      <div>
+        <h2>京东秒杀</h2>
+      </div>
+      <div>
+        <h2>特色优选</h2>
+      </div>
+      <div>
+        <h2>频道优选</h2>
+      </div>
+      <div>
+        <h2>为你推荐</h2>
+      </div>
+    </div>
+    <!-- 楼层 -->
+    <div class="f-nav">
+      <div class="on">京东秒杀</div>
+      <div>特色优选</div>
+      <div>频道优选</div>
+      <div>为你推荐</div>
+    </div>
+  </body>
+  <script>
+    // 导航
+    var navs = document.querySelectorAll(".f-nav div");
+    // 模块
+    var boxs = document.querySelectorAll(".main-wrap div");
+
+    // 添加点击事件
+    navs.forEach(function (nav, index) {
+      nav.onclick = function () {
+        console.log(this);
+        console.log(boxs[index].offsetTop);
+
+        let go = boxs[index].offsetTop;
+        // 滚动
+        window.scroll({
+          top: go,
+          behavior: "smooth",
+        });
+        // 调整样式
+        navs.forEach(function (nav) {
+          nav.className = "";
+        });
+
+        this.className = "on";
+      };
+    });
+
+    // 滚动切换样式
+    window.onscroll = function () {
+      let scrollT = document.documentElement.scrollTop;
+      // console.log(scrollT);
+      for (let i = boxs.length - 1; i >= 0; i--) {
+        if (scrollT > boxs[i].offsetTop) {
+          // 调整样式
+          navs.forEach(function (item) {
+            item.className = "";
+          });
+          navs[i].className = "on";
+          return; // 不再判断
+        }
+      }
+    };
+
+    // window.onscroll = function () {
+    //   let scrollT = document.documentElement.scrollTop;
+    //   console.log(scrollT);
+    //   if (scrollT <= 1200) {
+    //     navs.forEach(function (item) {
+    //       item.className = "";
+    //     });
+    //     navs[0].className = "on";
+    //   } else if (scrollT > 1200 && scrollT < 2400) {
+    //     navs.forEach(function (item) {
+    //       item.className = "";
+    //     });
+    //     navs[1].className = "on";
+    //   } else if (scrollT > 2400 && scrollT < 3600) {
+    //     navs.forEach(function (item) {
+    //       item.className = "";
+    //     });
+    //     navs[2].className = "on";
+    //   } else if (scrollT > 3600) {
+    //     navs.forEach(function (item) {
+    //       item.className = "";
+    //     });
+    //     navs[3].className = "on";
+    //   }
+    // };
+  </script>
+</html>

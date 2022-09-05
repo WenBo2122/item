@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var arr = [2, 3, 5, 56, 7, 23, 4547, 32, 3, 47867, 2324, 356, 73, 32, 6];
+
+    console.log(arr);
+    // console.log(arr.fill("num", 2, 8)); //从 2 到 8 包头不包尾、用 num 太填充
+
+    arr.sort();
+    console.log(arr);
+    arr.sort(function (a, b) {
+      return a - b; //升序
+    });
+    console.log(arr);
+
+    // forEach() 参数函数  的参数 有三个 数组项 、索引、数组本身
+    arr.forEach((item, i, wArr) => {
+      // console.log(item);
+      // 过百的数字
+      if (item >= 100) {
+        console.log(item);
+      }
+    });
+
+    // filter() 参数等同于 forEach  过滤数据
+    var newA = arr.filter(function (item) {
+      console.log(item);
+      // 返回一个 boolean值
+      return item >= 100;
+    });
+    console.log(newA);
+
+    var arr1 = [3, 7, "a", 2, "x"];
+    var strArr = arr1.filter(function (item) {
+      return typeof item == "number";
+    });
+    console.log(strArr);
+  </script>
+</html>

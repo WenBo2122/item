@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 200px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1" title="box1">
+      内容1
+      <a href="">链接</a>
+    </div>
+    <div class="box2">
+      内容2
+      <p>段落</p>
+    </div>
+
+    <script>
+      var $p = document.querySelector("p");
+      console.log($p);
+      // 如果插入的元素来自原DOM结构、会执行移动
+      // document.querySelector(".box1").append($p);
+      // document.querySelector(".box1 a").replaceWith($p);
+
+      // 克隆 cloneNode
+      var $p1 = $p.cloneNode("deep"); //赋值元素及后代
+      document.querySelector(".box1").append($p1);
+
+      // 新增节点
+      // createElement()
+      // cloneNode()
+      // createTextNode()  //创建文本节点
+      // createAttribute //创建标签属性节点
+
+      var txt1 = document.createElement("p");
+      document.querySelector(".box2").append(txt1); //追加文本内容
+      txt1.innerHTML = "显示";
+      console.log(txt1);
+
+      // 标签属性 Attribute
+      var att1 = document.createAttribute("title");
+      console.log(att1); //title=''
+      att1.nodeValue = "标题提示内容";
+      document.querySelector(".box2").setAttributeNode(att1);
+
+      /*
+      操作属性节点
+        setAttributeNode()设置属性节点
+      */
+    </script>
+  </body>
+</html>

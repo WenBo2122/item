@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var str = "Hello, world";
+    console.log(str.length);
+    console.log(str[0]);
+    console.log(str[5]);
+
+    str[0] = "x"; //字符串不可变性
+    console.log(str);
+
+    str = "xyz"; //变量重新赋值
+    console.log(str);
+
+    var str2 = "a"; //
+    console.log(str2.charCodeAt()); //字符的 utf-8 编码代号
+
+    console.log(String.fromCharCode(100)); //按照字符编码读取字符
+
+    console.log("-".repeat(30));
+
+    // 截取字符  slice()
+    var str3 = "asdjlkasjdlasj";
+    console.log(str3.slice(10));
+    console.log(str3.slice(8, 12)); // 从8 - 12 不包含12
+    console.log(str3.slice(-4, -1)); // 索引可以是负数、反向截取
+    console.log(str3);
+
+    console.log("-".repeat(30));
+
+    // 截取字符  substring()
+    console.log(str3.substring(1));
+    console.log(str3.substring(10));
+    console.log(str3.substring(8, 12));
+    console.log(str3.substring(12, 8)); //智能获取开始索引和结束索引
+    console.log(str3.substring(-4, -1)); //不能使用负数
+
+    // slice() 索引顺序不能反写、但可以是负数
+    // substring() 索引顺序不影响前后、但不能是负数 ***
+  </script>
+</html>

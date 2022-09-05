@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tab-content div {
+        display: none;
+        width: 600px;
+        height: 300px;
+        background-color: #f4f4f4;
+        border: 2px dashed red;
+      }
+
+      .tab-content div:first-child {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="tab-title">
+      <span>标题1</span>
+      <span>标题2</span>
+      <span>标题3</span>
+      <span>标题4</span>
+      <span>标题5</span>
+      <span>标题6</span>
+      <span>标题7</span>
+      <span>标题8</span>
+      <span>标题9</span>
+      <span>标题10</span>
+    </div>
+    <div class="tab-content">
+      <div>内容内容内容1</div>
+      <div>内容内容内容2</div>
+      <div>内容内容内容3</div>
+      <div>内容内容内容4</div>
+      <div>内容内容内容5</div>
+      <div>内容内容内容6</div>
+      <div>内容内容内容7</div>
+      <div>内容内容内容8</div>
+      <div>内容内容内容9</div>
+      <div>内容内容内容10</div>
+    </div>
+    <script>
+      // 标题集合
+      var tits = document.querySelectorAll(".tab-title span");
+      var conts = document.querySelectorAll(".tab-content div");
+      // console.log(tits);
+      // console.log(conts);
+      var activeE = 0; //记录当前显示的元素的索引
+
+      // 批量注册点击事件
+      for (let i = 0; i < tits.length; i++) {
+        tits[i].onclick = function () {
+          console.log(i); //现在的索引
+          conts[activeE].style.display = "none"; //上一个隐藏
+          conts[i].style.display = "block"; //当前对应显示
+          // 更新记录
+          activeE = i;
+        };
+      }
+    </script>
+  </body>
+</html>

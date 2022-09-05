@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 100px;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: cadetblue;
+      }
+      p {
+        width: 100px;
+        height: 100px;
+        background-color: cadetblue;
+      }
+      button {
+        width: 100px;
+        height: 100px;
+        background-color: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 图片默认是可拖拽元素 -->
+    <img id="img1" src="./美女.webp" alt="" />
+    <!-- 如果其他元素西药添加拖拽事件 添加 draggable = 'true' -->
+    <div id="div1" class="box1" draggable="true">盒子</div>
+    <p id="p1" draggable="true">段落</p>
+    <button id="btn1" draggable="true">按钮</button>
+
+    <script>
+      // drag 拖动事件 拖动过程
+      img1.ondrag = function () {
+        console.log("img");
+      };
+      div1.ondrag = function () {
+        console.log("div1");
+      };
+
+      // 拖拽开始
+      img1.ondragstart = function () {
+        console.log("拖拽开始");
+      };
+      // 脱拽元素进入区域内执行
+      div1.ondragenter = function () {
+        console.log("enter");
+      };
+      // 拖拽元素离开区域执行
+      div1.ondragleave = function () {
+        console.log("leave");
+      };
+      // 在目标范围内监听执行
+      div1.ondragover = function (e) {
+        console.log("over");
+        e.preventDefault(); //阻止默认行为
+      };
+      // 放下
+      div1.ondrop = function () {
+        console.log("drop");
+      };
+      img1.ondragend = function () {
+        console.log("结束");
+      };
+    </script>
+  </body>
+</html>

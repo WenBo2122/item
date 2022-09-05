@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件监听</title>
+  </head>
+  <body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2" onclick="fn2()">按钮2</button>
+    <button id="btn3">按钮3</button>
+  </body>
+  <script>
+    // 第一种
+    btn1.onclick = function () {
+      console.log("按钮1");
+    };
+    // 覆盖前一次、不能挂载两个事件
+    btn1.onclick = function () {
+      console.log("按钮1");
+    };
+    btn1.onclick = null; //移除
+
+    // 第二种
+    function fn2() {
+      console.log("按钮2");
+    }
+    btn2.onclick = null; //移除
+
+    // 第三种  addEventListener() 添加事件监听  官方推荐  可以为同一个目标挂载相同类型的事件
+    // document.getElementById("btn3").addEventListener(事件类型,函数);
+    document.getElementById("btn3").addEventListener("click", function () {
+      console.log("按钮333333333333");
+    });
+
+    function fn3() {
+      console.log("按钮3");
+    }
+    btn3.addEventListener("click", fn3);
+    // btn3.removeEventListener("click", fn3); //移除
+  </script>
+</html>

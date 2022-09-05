@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box,
+      .box1 {
+        width: 200px;
+        height: 100px;
+        overflow: auto;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      内容
+      <p>1111</p>
+      <p>1111</p>
+      <p>1111</p>
+      <p>1111</p>
+      <p>1111</p>
+    </div>
+
+    <div class="box1">
+      <input type="text" id="ipt" />
+    </div>
+
+    <!-- form 提交动作 action='后台接口' method='提交方法【get/post】'-->
+    <form id="form" action="https://www.baidu.com/" method="">
+      用户名：<input type="text" name="userName" /><br />
+      密码：<input type="password" name="userPwd" />
+      <button>立即注册</button>
+    </form>
+  </body>
+  <script>
+    let $div = document.querySelector(".box");
+    // 右击
+    document.addEventListener("contextmenu", function (e) {
+      console.log("触发");
+      e.preventDefault(); //阻止默认行为
+    });
+
+    // 双击
+    $div.addEventListener("dblclick", function () {
+      console.log("双击");
+    });
+
+    // 滚动
+    $div.addEventListener("scroll", function () {
+      console.log("滚动scroll");
+    });
+
+    // 按键事件
+    // 按下按键
+    document.addEventListener("keydown", function () {
+      console.log("keydown");
+    });
+
+    document.addEventListener("keypress", function (e) {
+      console.log("keypress");
+      console.log(e); //事件对象
+      console.log(e.key); //键
+      console.log(e.keyCode); //键值
+      if (e.key == "s") {
+        document.getElementById("ipt").focus(); //获取焦点的方法()
+      }
+    });
+    // 松开按键
+    document.addEventListener("keyup", function () {
+      console.log("keyup");
+    });
+
+    // 表单事件
+    document.getElementById("ipt").focus(); //获取焦点的方法()
+
+    // 获取焦点
+    ipt.onfocus = function () {
+      ipt.style.background = "#ccc";
+    };
+    // 失去焦点
+    ipt.onblur = function () {
+      ipt.style.background = "none";
+    };
+    // 输入
+    ipt.oninput = function () {
+      console.log("ing···");
+      console.log(ipt.value);
+    };
+    // 改变  获取焦点时的值于失去焦点时的值对比有改变 触发 change 事件
+    ipt.onchange = function () {
+      console.log("改变了···");
+    };
+
+    // <!-- form 提交动作 action='后台接口' method='提交方法【get/post】'-->
+    // 提交事件监听
+    form.onsubmit = function (e) {
+      alert("提交了");
+
+      // 阻止默认提交
+      e.preventDefault();
+
+      // 拿到表单值
+      var val1 = document.getElementsByName("userName")[0].value;
+      var val2 = document.getElementsByName("userPwd")[0].value;
+
+      // 把数据提交给后台
+      console.log("提交数据" + val1, val2);
+    };
+  </script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let arr = ["a", 100, true, 23, 123, 234, 345];
+    console.log(arr.length);
+
+    // 末尾添加
+    // arr.push("uuu");
+    // 末尾删除 返回值是被删除元素
+    // let a = arr.pop();
+    // console.log(a);
+    // 开头添加
+    // arr.unshift("qq");
+    // 开头删除 返回值是被删除元素
+    // let b = arr.shift();
+    // console.log(b);
+
+    // 提取从 start 到 end 的数据组成新数组 slice(start索引, end索引) 【不包含end】
+    console.log(arr.slice(2, 5));
+    // splice 从数组中间某个位置删除数据 splice( start索引, n个, 新增数据)
+    console.log(arr.splice(3, 2, 111));
+
+    console.log(arr);
+
+    // 合并数组 数组2合并到数组1已返回值返回新数组
+    var arr1 = [1, 2, 3];
+    var arr2 = [4, 5, 6];
+    var d = arr1.concat(arr2);
+    console.log(arr1);
+    console.log(arr2);
+    console.log(d);
+
+    // ...语法 展开
+    console.log([...arr1, ...arr2]);
+
+    // 查找
+    console.log(arr.indexOf(23)); //没有返回 -1; 有返回索引
+    console.log(arr.indexOf(234)); //有 返回索引
+    console.log(arr.lastIndexOf(100)); // 有返回索引
+    // 是否包含
+    console.log(arr.includes(100)); //false
+
+    //将数组转换成字符串
+    console.log(arr.join());
+    console.log(arr.join("-"));
+    console.log(arr.join("="));
+    console.log(arr.join(" "));
+
+    var str = "helloworld";
+    // 将字符串转换成数组
+    console.log(str.split());
+    console.log(str.split(""));
+    console.log(str.split("e"));
+
+    // 反转数组
+    console.log(arr.reverse());
+  </script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- ul>li*3{一级目录$} -->
+    <ul>
+      <li>
+        一级目录1
+        <!-- ul>li*5{二级目录$} -->
+        <ul style="display: none">
+          <li>二级目录1</li>
+          <li>二级目录2</li>
+          <li>二级目录3</li>
+          <li>二级目录4</li>
+          <li>二级目录5</li>
+        </ul>
+      </li>
+      <li>
+        一级目录2
+        <ul style="display: none">
+          <li>二级目录1</li>
+          <li>二级目录2</li>
+          <li>二级目录3</li>
+          <li>二级目录4</li>
+          <li>二级目录5</li>
+        </ul>
+      </li>
+      <li>
+        一级目录3
+        <ul style="display: none">
+          <li>二级目录1</li>
+          <li>二级目录2</li>
+          <li>二级目录3</li>
+          <li>二级目录4</li>
+          <li>二级目录5</li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      var lis = document.querySelectorAll("body>ul>li");
+      var bol = false;
+      // for (var i = 0; i < lis.length; i++) {//3
+      for (let i = 0; i < lis.length; i++) {
+        // console.log(i)
+        // 为每一元素注册点击事件
+        // console.log(lis[i])
+        lis[i].onclick = function () {
+          console.log(this); //点击的是谁
+          // this.firstElementChild.style.display = "block";
+          // console.log(i);
+
+          if (!bol) {
+            this.firstElementChild.style.display = "block";
+          } else {
+            this.firstElementChild.style.display = "none";
+          }
+          bol = !bol;
+          console.log(bol);
+        };
+      }
+
+      // 变量的提升
+    </script>
+  </body>
+</html>

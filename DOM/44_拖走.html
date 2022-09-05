@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        border: 10px solid red;
+      }
+      .box1 {
+        border-color: blue;
+      }
+      img {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <img src="./美女.webp" alt="" />
+    </div>
+    <div class="box2"></div>
+
+    <script>
+      // 图片默认可拖拽元素
+      let $box1 = document.querySelector(".box1");
+      let $box2 = document.querySelector(".box2");
+      let $img = document.querySelector("img");
+      // 按下5
+      $img.onmousedown = function (ev) {
+        // 初始位置
+        // console.log(this);
+        var that = this; //img
+        // 移动
+        document.onmousemove = function () {
+          //松开
+          $box2.onmouseenter = function () {
+            $box2.append(that);
+          };
+        };
+      };
+    </script>
+  </body>
+</html>

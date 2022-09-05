@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-box"></div>
+  </body>
+  <script>
+    // 转换大小写
+    var str1 = "abc";
+    console.log(str1.toUpperCase()); // 转换成大写
+
+    var str2 = "HELLO";
+    console.log(str1.toLowerCase()); // 转换成小写
+
+    var str3 = "main-box"; //转驼峰
+    str3 = str3.split("-"); //转数组
+    console.log(str3);
+    var new3 = str3[1].split("");
+    new3[0] = new3[0].toUpperCase();
+    console.log(str3[0] + new3.join(""));
+
+    // toUpperCase()/toLowerCase()
+    // split()/join()
+
+    // trim() 去掉字符串两端空格
+    var str5 = "  as indfb  ";
+    console.log(str5.length); // 12
+    var str6 = str5.trim();
+    console.log(str6.length); // 8
+    console.log(str5.trimStart().length); // 10
+    console.log(str5.trimEnd().length); // 10
+
+    // replace/replaceAll  替换字符
+    var str10 = prompt("请评论") || "";
+    str10 = str10.replaceAll("sb", "星星");
+    console.log(str10);
+
+    // 查找字符
+    var str11 = "hhuiuhkgjh";
+    // 查找 字符串是否包含 h
+    str11.includes("h"); //boolean 类型 true
+    str11.indexOf("h"); //索引0  第一个字符的索引
+    str11.indexOf("x"); //索引 找不到 -1
+    str11.lastIndexOf("h"); // 9 最后一个字符的索引
+
+    str11.startsWith("a"); //false  是否以 a 开头的字符
+    str11.endsWith("h"); //true   是否以 h 结尾的字符
+
+    console.log(str11.repeat(3)); // 重复三次
+
+    /*
+      查找字符  includes()  indexOf()  lastIndexOf()  startsWith()  endsWith()
+      操作字符  charCodeAt()/fromCharCode()  toUpperCase()/toLowerCase() trim()  replace()/replaceAll() repeat(
+      提取字符 slice() subString()
+      与数组 split() join()
+      )
+    */
+  </script>
+</html>

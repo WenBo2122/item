@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- ul>li*3{一级目录$} -->
+    <ul>
+      <li>
+        一级目录1
+        <!-- ul>li*5{二级目录$} -->
+        <ul style="display: none">
+          <li>二级目录1</li>
+          <li>二级目录2</li>
+          <li>二级目录3</li>
+          <li>二级目录4</li>
+          <li>二级目录5</li>
+        </ul>
+      </li>
+      <li>一级目录2</li>
+      <li>一级目录3</li>
+    </ul>
+
+    <script>
+      // 展开状态
+      var isShow = false;
+      // 点击展开
+      // console.log(document.querySelector('li'))
+      // 注册点击事件
+      document.querySelector("li").onclick = function () {
+        // 找到当前li内部的第一个子元素
+        // console.log(this)//事件函数里的this指向事件源
+        // console.log(this.firstElementChild)
+        // 设置display，显示子元素
+        if (!isShow) {
+          this.firstElementChild.style.display = "block";
+          isShow = true; //修改状态
+        } else {
+          this.firstElementChild.style.display = "none";
+          isShow = false; //修改状态
+        }
+      };
+    </script>
+  </body>
+</html>

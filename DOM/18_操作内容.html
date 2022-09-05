@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+    <div class="box4">
+      <h2>二级标题</h2>
+      <p>副标题</p>
+      <style>
+        h1 {
+          color: red;
+        }
+        p {
+          font-size: 12px;
+        }
+      </style>
+      <div style="display: none">内容</div>
+    </div>
+    <script>
+      document.querySelector(".box1").innerText = "文本内容<br/>";
+      document.querySelector(".box2").innerHTML = "<h1>大标题</h1>";
+      document.querySelector(".box3").textContent = "<p>一个段落</p>";
+
+      //
+      var $box4 = document.querySelector(".box4");
+      console.log($box4.innerText); //只有可见文本
+      console.log($box4.innerHTML); //包含所有、包括标签
+      console.log($box4.textContent); //所有文本、包括不可见、不包括标签
+    </script>
+  </body>
+</html>

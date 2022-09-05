@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        margin: 100px;
+        padding: 13px;
+        border: 33px solid red;
+        width: 300px;
+        height: 300px;
+        overflow: auto;
+      }
+
+      .outter {
+        position: absolute;
+        left: 90px;
+        top: 20px;
+        background-color: burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outter">
+      <div class="box">
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为1</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为2</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为3</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为4</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为5</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为6</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为7</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为8</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为9</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为10</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为11</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为12</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为13</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为14</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为15</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为16</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为17</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为18</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为19</p>
+        <p>段落两岸三地卡佛iv哦为后期我今儿对经济拉动的女哦为20</p>
+      </div>
+    </div>
+    <script>
+      // 鼠标的偏移
+      document.onclick = function (e) {
+        console.log(e);
+      };
+
+      // 盒子的偏移和尺寸
+      // offset
+      var $box = document.querySelector(".box");
+      console.log($box.offsetTop);
+      console.log($box.offsetLeft);
+      console.log($box.offsetWidth);
+      console.log($box.offsetHeight);
+      console.log($box.offsetParent);
+      // offsetLeft\offsetTop  取决于 offsetParent 元素 是谁
+      // offsetWidth/offsetHeight 取决于 width + padding + border - width
+
+      // client
+      console.log($box.clientHeight); // 内容加内填充 height + padding - 滚动条尺寸(16-17)
+      console.log($box.clientWidth); // 内容加内填充 width + padding - 滚动条尺寸(16-17)
+      console.log($box.clientTop); // 上边框尺寸
+      console.log($box.clientLeft); // 左边框尺寸
+
+      // scroll
+      console.log($box.scrollTop); // 纵向卷起的尺寸
+      console.log($box.scrollLeft); // 横向卷起的尺寸
+      console.log($box.scrollHeight); // 纵向滚动尺寸
+      console.log($box.scrollWidth); // 横向滚动尺寸
+    </script>
+  </body>
+</html>

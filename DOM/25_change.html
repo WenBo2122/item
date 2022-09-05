@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <input type="text"> 失去焦点的时候 值改变了就触发 -->
+    <input type="checkbox" id="en" />
+    <label for="en">代码</label>
+
+    <select name="" id="">
+      <option value="">2022</option>
+      <option value="">2021</option>
+      <option value="">2020</option>
+      <option value="">2019</option>
+    </select>
+
+    <script>
+      // 表单值或结果发生了改变的时候触发 change 事件
+      document.querySelector("input").onchange = function () {
+        console.log("触发了");
+      };
+
+      document.querySelector("select").onchange = function () {
+        console.log("触发111");
+
+        // 选中元素的索引
+        console.log(document.querySelector("select").selectedIndex);
+
+        // 被选中元素
+        console.log(document.querySelector("select").selectedOptions[0]);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <h1>标题</h1>
+        <p>段落</p>
+        <ul>
+            <li>列表1</li>
+            <li class="li_01">列表2</li>
+            <li>列表3</li>
+            <li>列表4</li>
+            <li>列表5</li>
+            <li class="li_01">列表6</li>
+            <li>列表7</li>
+            <li>列表8</li>
+            <li id="item1">列表9</li>
+            <li>列表10</li>
+        </ul>
+        <!-- ul>li*10{列表内容$} -->
+        <!-- div>p.list$*5{段落$} -->
+        <div class="box2">
+            <p class="list1">段落1</p>
+            <p class="list2">段落2</p>
+            <p class="list3">段落3</p>
+            <p class="list4">段落4</p>
+            <p class="list5">段落5</p>
+        </div>
+
+        <input type="text" name="userName">
+        <input type="password" name="pwd">
+    </div>
+    <script>
+        // 所有的DOM元素都是对象
+        // 元素集合都是伪数组类型【对象】
+        // getElementById() 通过id获取元素
+        var item1 = document.getElementById('item1')
+        console.log(item1)
+        console.dir(item1)//以对象的结构打印数据
+        // getElementsByClassName() 通过类名获取元素  元素集合
+        var item2 = document.getElementsByClassName('li_01')
+        console.log(item2)
+        console.log(document.getElementsByClassName('list1')[0])
+        
+        // getElementsByTagName() 通过标签获取元素 元素集合
+        console.log(document.getElementsByTagName('li'))
+        console.log(document.getElementsByTagName('li')[7])
+
+        // getElementsByName() 通过name名获取元素  节点列表
+        console.log(document.getElementsByName('userName')[0])
+
+
+        // 通过选择器查询元素
+        console.log(document.querySelector('p'))
+        console.log(document.querySelector('.li_01'))
+        console.log(document.querySelector('#item1'))
+        console.log(document.querySelector('.box2 p'))
+
+        // 节点列表
+        console.log(document.querySelectorAll('p'))
+        // 访问第一个
+        console.log(document.querySelectorAll('p')[0])
+
+
+
+        // DOM0级获取元素
+        console.dir(document.documentElement)//html
+        console.dir(document.body)//body
+        console.dir(document.head)
+        console.dir(document.title)//<title>内的值
+        console.log(document.images)
+        console.log(document.scripts);
+    </script>
+</body>
+
+</html>

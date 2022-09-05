@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #btn {
+        color: #fff;
+        background-color: red;
+      }
+    </style>
+    <script>
+      console.log(document.getElementById("btn")); // null
+      // 当页面加载完成、且 src href 等引用资源全部加载完成后执行
+      window.onload = function () {
+        console.log(document.getElementById("btn")); //button
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box">
+      <button id="btn">按钮</button>
+    </div>
+    <script>
+      // 页面结构已经渲染完成、但是引用资源还在持续加载
+      console.log(document.getElementById("btn")); // button
+    </script>
+  </body>
+</html>

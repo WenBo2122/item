@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双层循环</title>
+  </head>
+  <body>
+    <script>
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 3; j++) {
+          console.log("a");
+        }
+      }
+      // 外层执行一次、内层执行三次
+      // 外层执行5次、内层执行  5*3  15次
+
+      // 跳出循环
+
+      //return 是程序的返回值、用于终止函数
+      function fn() {
+        for (let i = 0; i < 3; i++) {
+          if (i == 2) {
+            // break; //终止
+            // continue; //终止此次循环 继续下一次
+            return; //应用于函数内部、终止程序
+          }
+          console.log(i);
+        }
+      }
+      fn();
+    </script>
+  </body>
+</html>

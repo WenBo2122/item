@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      var newLists = [
+        "东部战区继续位台岛周边海空域组织实战化联合演训",
+        "两栖合成部队闽南海域突击演练 解放军抢滩登陆现场曝光",
+        '台军反登陆"天雷操演"今登场 台媒:榴弹炮最大射程仅15公里',
+        "美军近日出动侦察机前往台岛周边空域 想窥探什么?专家解读",
+        '"野牛"气垫登陆艇到底有多牛?直击几秒钟冲滩登陆震撼画面',
+        "美国军方放话：不会上中方“圈套”，数周内穿行台湾海峡",
+        "美国FBI突查海湖庄园 特朗普现身未作回应匆匆离去",
+        '韩国暴雨已致7死9伤6人失踪 现场:车泡水里 电梯成"水帘洞"',
+        "韩国首都圈暴雨 中国驻韩国大使馆证实:一名中国公民遇难",
+        "美海军证实航母舰载战机被大风吹入海里 目前已被打捞出海",
+        "为防校园枪击案 美国一州计划所有学校配备AR-15步枪",
+        "枪杀安倍嫌犯新供述:安倍身旁的人在安全距离内 不会被击中",
+      ];
+      var str = "";
+      for (let i = 0; i < newLists.length; i++) {
+        str += `<li>${newLists[i]}</li>`;
+      }
+      document.querySelector("ul").innerHTML = str;
+    </script>
+  </body>
+</html>

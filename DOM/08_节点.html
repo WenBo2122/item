@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>段落</p>
+      <h1 id="tit2">标题</h1>
+      <h1>标题2</h1>
+      <div>内容</div>
+      <ul>
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+      </ul>
+    </div>
+    <script>
+      // 节点
+      // 元素节点是节点之一
+      // DOM树  document  由节点构成
+      // 节点类型  元素节点  文本节点  属性节点  注释节点
+
+      // 查找元素节点
+      // parentElement;   父元素
+      // children;   子元素
+      // firstElementChild    第一个子元素
+      // lastElementChild   最后一个子元素
+      // previousElementSibling   上一个元素
+      // nextElementSibling   下一个元素
+
+      // 查找文本节点
+      // parentNode  父节点
+      // childNodes   子节点
+      // firstChild   第一个子节点
+      // lastChild    最后一个子节点
+      // previousSibling   上一个子节点
+      // nextibling   下一个子节点
+      var tit2 = document.querySelector("#tit2");
+      console.log(tit2.previousElementSibling); //h1
+      console.log(tit2.previousSibling); //text 文本
+      var $ul = document.querySelector("ul");
+      console.log($ul.children);
+      console.log($ul.childNodes);
+      console.log($ul.previousElementSibling.nodeType == 1);
+      console.log($ul.previousElementSibling.nodeType == Node.ELEMENT_NODE);
+      console.log($ul.previousSibling.nodeType); //查看节点的类型 3
+      console.log($ul.previousSibling.nodeName);
+      console.log($ul.previousSibling.nodeValue);
+    </script>
+  </body>
+</html>

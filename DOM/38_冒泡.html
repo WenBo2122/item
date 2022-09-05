@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box2 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      #box1 {
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1">
+      外
+      <div id="box2">内</div>
+    </div>
+    <script>
+      box2.onclick = function (e) {
+        this.style.backgroundColor = "green";
+        // 内层阻止冒泡
+        e.stopPropagation();
+      };
+      box1.onclick = function (e) {
+        this.style.backgroundColor = "blue";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box" id="box1">
+      <a href="#" title="百度一下">百度一下</a>
+      <img src="" alt="" />
+      <br />
+      <input type="text" value="文本" />
+      <input type="text" disabled value="文本" /><br />
+      <input type="button" value="按钮" />
+      <input type="button" disabled value="按钮" /><br />
+      <input type="radio" value="" name="abv" />
+      <input type="radio" value="" name="abv" /><br />
+      <input type="checkbox" checked name="" id="" />
+      <input type="checkbox" disabled name="" id="" />
+      <input type="checkbox" name="" id="" />
+    </div>
+    <script>
+      // attribute 标签属性
+      // getAttribute() 获取 、setAttribute() 、设置 reoveAttribute() 移除、 attributes() 属性集合
+      // createAttribute()  创建属性 setAttributeNode()  设置属性节点
+
+      // className  操作类型
+      console.log(document.querySelector("div").className);
+      document.querySelector("div").className = "main";
+
+      // id 操作ID
+      console.log(document.querySelector("div").id);
+      document.querySelector("div").id = "wrap";
+
+      // 多数 标准的标签属性都可以直接访问和修改
+      document.querySelector("div a").href = "https://www.baidu.com/";
+      document.querySelector("div a").title = "https://www.baidu.com/";
+
+      document.querySelector("img").src = "./作业/渲染切换/title.png";
+      document.querySelector("img").title = "这就是一张狗子";
+      document.querySelector("img").alt = "狗子";
+
+      document.querySelectorAll("input")[5].checked = "true";
+    </script>
+  </body>
+</html>

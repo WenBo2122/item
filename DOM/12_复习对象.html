@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //对象、属性和方法组成
+      var carObj = {
+        name: "凯迪拉克",
+        height: "155",
+        intro: "时尚版",
+        price: 14.6,
+        auto: true,
+        xx: {},
+        yy: [],
+        print: function () {
+          console.log(`蒙多说郑凯旋是个大娘们`); //对象的方法
+        },
+      };
+
+      // 改
+      carObj.name = "郑凯旋";
+      // 增
+      carObj.color = "red";
+      // 删
+      delete carObj.auto;
+      console.log(carObj);
+
+      // 查
+      console.log(carObj.name);
+      console.log(`身高 ${carObj["height"]}`);
+      carObj.print();
+
+      // 遍历对象  语法for (let  变量名 in 要遍历的对象){} ------ 变量代表对象的属性
+      for (const key in carObj) {
+        // console.log(key);
+        // 如果属性是变量、使用 [] 语法读对象的值
+        console.log(key + "-------------" + carObj[key]);
+      }
+    </script>
+  </body>
+</html>

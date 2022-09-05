@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 创建数组1  字面量创建数组
+    var arr1 = [];
+
+    // 实例化创建数组
+    // var arr2 = new Array(5);
+    var arr2 = new Array(5, 2);
+
+    console.log(arr1);
+    console.log(arr2);
+
+    var wArr = {
+      0: "a",
+      1: "x",
+      length: 2,
+    };
+
+    console.log(wArr);
+    console.log(Array.from(wArr)); //只能伪数组转换成真数组
+
+    // 通过数组项构建数组 【不重要】
+    var arr5 = Array.of(5);
+    var arr6 = Array.of(5, 2);
+    var arr7 = Array.of(5, 2, 9);
+
+    console.log(arr5);
+    console.log(arr6);
+    console.log(arr7);
+
+    // 判断是不是数组
+    console.log(typeof arr7);
+    console.log(Array.isArray(arr7)); //true
+    console.log(Array.isArray(wArr)); //false
+
+    console.log(arr7 instanceof Array); //true
+    console.log(wArr instanceof Array); //false
+  </script>
+</html>

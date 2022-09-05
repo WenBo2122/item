@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 500px;
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <p>段落</p>
+      <h2>标题</h2>
+    </div>
+  </body>
+  <script>
+    // 每一个事件监听程序都有一个事件对象 event 的参数
+    box.onclick = function (event) {
+      // 形参
+      console.log(event); //事件对象  事件发生的所有信息
+      console.log(event.pageX);
+      console.log(event.pageY);
+      console.log(event.target); // 触发事件的目标元素 【不仅仅是事件源】
+    };
+  </script>
+</html>

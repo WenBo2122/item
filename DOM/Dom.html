@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button>按钮</button>
+    <div class="box" clstag="abc" data-abc="aaa" data-xyz="xxx">内容</div>
+    <!-- 
+      Dom Document Object Model
+      1、获取元素 document.getElement[s]By*、document.querySelector[All]
+      2、节点：noneType nodeNmane nodeValue
+      3、查找节点的属性集合（12） 父子兄弟
+      4、元素节点和节点都是对象：属性、方法
+      5、事件
+          注册、卸载
+          事件类型 鼠标事件 键盘事件 滚动事件
+          事件对象
+          事件流
+          事件委托
+      6、元素的尺寸和偏移
+      7、页面窗口的尺寸
+
+    -->
+
+    <script>
+      // className 传统操作类名
+      // classList 新操作类名 添加/切换/移除  add()  remove()  toggle()
+      // document.querySelector(".box").classList.add("box1");
+      // document.querySelector(".box").classList.remove("box");
+
+      document.querySelector("button").onclick = function () {
+        document.querySelector(".box").classList.toggle("hide");
+      };
+
+      // dataset 新操作属性 用来操作H5 新增 标准自定义属性
+
+      // 读
+      console.dir(document.querySelector(".box").dataset);
+      console.dir(document.querySelector(".box").dataset.abc);
+      console.dir(document.querySelector(".box").dataset.xyz);
+
+      // 写
+      document.querySelector(".box").dataset.id = 1;
+
+      // 开始拖拽
+    </script>
+  </body>
+</html>

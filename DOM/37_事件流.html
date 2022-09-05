@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        padding: 50px;
+        border-width: 2px;
+        border-style: solid;
+      }
+      .box1 {
+        width: 300px;
+        height: 300px;
+        border-color: red;
+      }
+      .box2 {
+        width: 150px;
+        height: 150px;
+        border-color: blue;
+      }
+      .box3 {
+        width: 50px;
+        height: 50px;
+        border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2">
+        <div class="box3"></div>
+      </div>
+    </div>
+    <script>
+      var $box1 = document.querySelector(".box1");
+      var $box2 = document.querySelector(".box2");
+      var $box3 = document.querySelector(".box3");
+
+      // 事件冒泡  默认的执行顺序
+      $box1.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子1");
+        },
+        false // 默认值false 代表不是捕获阶段
+      );
+      $box2.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子2");
+        },
+        false
+      );
+      $box3.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子3");
+        },
+        false
+      );
+
+      // 事件捕获阶段
+      // addEventListener(事件类型、执行程序、配置项)
+      $box1.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子11");
+        },
+        true
+      );
+      $box2.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子22");
+        },
+        true
+      );
+      $box3.addEventListener(
+        "click",
+        function (e) {
+          console.log("这是盒子33");
+        },
+        true
+      );
+
+      // 事件目标 e.target
+    </script>
+  </body>
+</html>

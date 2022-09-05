@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul li {
+        list-style: none;
+        cursor: move;
+      }
+
+      .box {
+        width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .left {
+        width: 400px;
+        height: 600px;
+        border: 1px solid seagreen;
+      }
+      .right {
+        width: 400px;
+        height: 600px;
+        border: 1px solid lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left">
+        <h1>左</h1>
+        <ul>
+          <li draggable="true">列表内容1</li>
+          <li draggable="true">列表内容2</li>
+          <li draggable="true">列表内容3</li>
+          <li draggable="true">列表内容4</li>
+          <li draggable="true">列表内容5</li>
+        </ul>
+      </div>
+      <div class="right">
+        <h1>右</h1>
+
+        <ul>
+          <li draggable="true">列表内容a</li>
+          <li draggable="true">列表内容b</li>
+          <li draggable="true">列表内容c</li>
+          <li draggable="true">列表内容d</li>
+          <li draggable="true">列表内容e</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      var lis = document.querySelectorAll(".box ul li");
+      var dEle = null; //拖拽初始值
+      lis.forEach(function ($li) {
+        // 开始拖动
+        $li.ondragstart = function (e) {
+          // console.log(this);
+          dEle = this; //赋值被拖拽元素
+        };
+      });
+
+      // right
+      document.querySelector(".right").ondragover = function (e) {
+        e.preventDefault(); // 阻止默认行为
+      };
+      document.querySelector(".right").ondrop = function (e) {
+        // console.log(dEle);
+        // console.log(e.target);
+        document.querySelector(".right ul").append(dEle);
+
+        // 如果前面一个语句为真、后面代码执行、为假、后面不执行
+        // e.target.nodeName == "LI" && e.target.before(dEle);
+      };
+      // left
+      document.querySelector(".left").ondragover = function (e) {
+        e.preventDefault(); // 阻止默认行为
+      };
+      document.querySelector(".left").ondrop = function (e) {
+        // console.log(dEle);
+        // document.querySelector(".left ul").append(dEle);
+
+        e.target.nodeName == "LI" && e.target.before(dEle);
+        console.log(e.target);
+      };
+    </script>
+  </body>
+</html>

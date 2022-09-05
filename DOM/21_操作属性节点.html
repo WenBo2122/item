@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box1" title="提示内容"></div>
+    <script>
+      var box1 = document.getElementById("box1");
+      // 获取属性节点值 getAttribute
+      console.log(box1.getAttribute("title"));
+
+      // 设置新属性及值、setAttribute() 参数1、属性名、参数2、属性值
+      box1.setAttribute("abc", "ccc");
+
+      // 移除属性 removeAttribute()
+      box1.removeAttribute("title");
+      // attributes 读取所有属性
+      console.log(box1.attributes);
+    </script>
+  </body>
+</html>

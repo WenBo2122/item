@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [2, 3, 4, 3, "a", 23, "bd", "wer", 99, 0, false];
+      console.log(arr);
+      // 遍历数组 【依次读取数组内容】
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      console.log("-".repeat("30")); //分割线
+
+      // 遍历数组2
+      for (let val of arr) {
+        console.log(val);
+      }
+
+      console.log("-".repeat("30")); //分割线
+
+      // 遍历数组3
+      arr.forEach(function (item) {
+        console.log(item);
+      });
+
+      // 遍历数组4  过滤  返回值 return  返回 boolean 类型的值
+      var newA = arr.filter(function (item) {
+        // console.log(item);
+        // if (item % 2 == 0 && typeof item == "number") {
+        //   return true;
+        // }
+
+        return item % 2 == 0 && typeof item == "number";
+      });
+      console.log(newA);
+    </script>
+  </body>
+</html>

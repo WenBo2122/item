@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      var $div = document.querySelector("div");
+      // 按下鼠标事件
+      $div.onmousedown = function (ev) {
+        // console.log("点下");
+        // console.log(ev.pageX); //初始指针
+        // console.log(ev.pageY);
+        // console.log(ev.layerX);
+        // console.log(ev.layerY);
+
+        // 移动获取鼠标定位
+        document.onmousemove = function (e) {
+          // console.log(e.pageX); //移动指针
+          // console.log(e.pageY);
+          $div.style.left = e.pageX - ev.layerY + "px";
+          // $div.style.top = e.pageY - ev.layerY + "px";
+        };
+      };
+      // 松开鼠标事件  鼠标松开后去掉move
+      $div.onmouseup = function (e) {
+        document.onmousemove = null;
+      };
+    </script>
+  </body>
+</html>

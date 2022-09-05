@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var arr = [2, 15, 54, 26, 5, 10];
+    // 排序方法 sort
+    // sort 的函数参数返回正数调换位置、负数不换、0原地
+    console.log(arr.sort());
+    // num1参与比较的后一个数字、num2参与比较的前一个数字
+    // arr.sort(function (num1, num2) {
+    //   // if (num1 > num2) {
+    //   //   return 1;
+    //   // }
+    //   // if (num1 < num2) {
+    //   //   return -1;
+    //   // }
+    //   // if (num1 === num2) {
+    //   //   return 0;
+    //   // }
+    //   // return num1 - num2; //升序
+    //   return num2 - num1; //降序
+    // });
+
+    arr.sort((a, b) => b - a);
+    console.log(arr);
+
+    // 遍历数组  val 数组项  i索引
+    arr.forEach(function (val, i, nArr) {
+      console.log(`${val}的索引是${i}`);
+      console.log(nArr);
+    });
+  </script>
+</html>

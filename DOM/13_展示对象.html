@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 500px;
+        height: 360px;
+        background-color: #ccc;
+      }
+      video {
+        width: 500px;
+        height: 280px;
+      }
+
+      img {
+        position: absolute;
+        display: block;
+        width: 500px;
+        height: 280px;
+        z-index: 9;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      var obj = {
+        categoryNo: "111910",
+        checked: false,
+        groupOrderSn: 0,
+        name: "电钻/冲击钻",
+        orderSn: 3,
+      };
+      var str = "分类编号：";
+      str = str + obj.categoryNo + "\n";
+      str = str + "分类名：";
+      str = str + obj.name;
+
+      console.log(str);
+
+      document.querySelector("div").innerText = str;
+    </script>
+  </body>
+</html>

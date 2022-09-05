@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建节点对象</title>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <ul>
+      <li>列表1</li>
+      <li>列表2</li>
+      <li>列表3</li>
+      <li>列表4</li>
+      <li>列表5</li>
+    </ul>
+
+    <script>
+      // DOM、document 对象
+      var box1 = document.getElementsByTagName("div");
+      console.log(box1); //伪数组
+      console.log(typeof box1); //object
+      console.log(typeof box1[0]); //object
+
+      //
+      var box2 = document.querySelector(".box2");
+      console.log(box2); //object
+      console.log(typeof box2); //object
+
+      // 创建div元素节点
+      var div1 = document.createElement("div");
+      console.log(div1);
+      div1.innerHTML = "Hello";
+
+      // 插入列表 插入元素方法  append()  prepend()  before()  after()  replaceWith()  remove
+      // document.querySelectorAll("ul li")[2].append(div1); //元素内最后
+      // document.querySelectorAll("ul li")[2].prepend(div1); //元素内最前
+      // document.querySelectorAll("ul li")[2].before(div1); //元素前一个
+      // document.querySelectorAll("ul li")[2].after(div1); //元素后一个
+      // document.querySelectorAll("ul li")[2].replaceWith(div1); //替换节点
+      // document.querySelectorAll("ul li")[2].remove(div1); //移除
+
+      // 旧方法
+      // document.querySelectorAll("ul li")[2].appendChild(div1); //元素内最后
+      // insertBefore(新节点、节点)、某节点之前添加新节点
+      var node1 = document.querySelectorAll("ul li")[2];
+      // document.querySelector("ul").insertBefore(div1, node1);
+      //replaceChild(新节点、被替换的节点)  替换某节点
+      // document.querySelector("ul").replaceChild(div1, node1);
+      // removeChild(要移除的节点)  移除某个节点
+      document.querySelector("ul").removeChild(node1);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 基本数据类中[值类型] String Number Boolean Undefined Null
+      // 复杂数据类型[引用类型] Object 【object array function】
+
+      var str1 = "a";
+      var str2 = "b";
+      var str3 = `c`;
+
+      // 验证数据类型值，typeof
+      console.log(typeof str1); //string
+
+      var num1 = 10;
+      var num2 = 10.99;
+
+      console.log(typeof num2); //number
+
+      var f1 = true;
+      var f2 = false;
+
+      console.log(typeof f1); //boolean
+
+      var u1;
+      console.log(typeof u1); //undefined
+
+      var u1 = undefined;
+      console.log(typeof u1); //undefined
+
+      var n1 = null;
+      console.log(typeof n1); //object
+      console.log(typeof null); //object
+
+      var obj = {
+        name: "旺财",
+        age: 3,
+        sayHi: function () {
+          //对象的方法
+          console.log("旺旺旺");
+        },
+      };
+
+      var arr = [0, 2, "a", "b", true, null, undefined, 3, "asd", {}, []];
+
+      function fn() {
+        console.log("这是函数");
+      }
+      fn();
+    </script>
+  </body>
+</html>

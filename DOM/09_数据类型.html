@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 基本数据类型 String number boolean undefind null
+      // 包装后 String Number Boolean Undefind Null
+      // 复杂数据类型 object
+
+      console.log("1" + 1); //11 字符串
+
+      // 数据类型转换
+      // 基本数据类型的对象包装器
+      console.log(String(23));
+      console.log(Number("100"));
+      console.log(Boolean(0));
+      console.log(Boolean(1));
+      console.log(Boolean(""));
+      console.log(Boolean("abc"));
+
+      // false 只有 6 个数据  false  0、''、NaN、undefind、null、
+      // 其他全部都是 true
+
+      // if (!"") {}
+      // if (!0) {}
+      // if (!NaN) {}
+      // if (!undefind) {}
+      // if (!null) {}
+      if (!false) {
+        console.log("abc");
+      }
+
+      // Nan 不等于任何值、包括自己
+      console.log(NaN == NaN);
+      //没有经过 boolean 类型转换、就是相等
+      // undefind 除了自身和对方、与其他都不等
+      console.log(undefined == null); //true
+      console.log(undefined === null); //flase 数据类型
+
+      var obj = {
+        name: "旺财",
+        say: function () {
+          console.log(`you jump、i jump`);
+        },
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 500px;
+        height: 360px;
+        background-color: #ccc;
+      }
+      video {
+        width: 500px;
+        height: 280px;
+      }
+
+      img {
+        position: absolute;
+        display: block;
+        width: 500px;
+        height: 280px;
+        z-index: 9;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- <video src="" controls></video>
+      <h1></h1>
+      <p></p> -->
+    </div>
+
+    <script>
+      var MVObj = {
+        artistName: "朴树",
+        createDate: null,
+        delFlag: 0,
+        id: 57,
+        videoDesc: "平凡之路 新年晚会[超清版]",
+        videoImg:
+          "https://img.yinyuetai.com/img/50f2b5f0d5b542f6bccc167237f9bd49.png",
+        videoName: "平凡之路 新年晚会[超清版]",
+        videoType: 1,
+        videoUrl:
+          "https://video.yinyuetai.com/873a36ac253f4b8498ed5be0a7b5f8f3.mp4",
+      };
+
+      // 渲染文本
+      var str = `
+      <video src="${MVObj.videoUrl}" controls></video>
+      <h1>${MVObj.videoDesc}</h1>
+      <p>${MVObj.artistName}</p>`;
+
+      document.querySelector("div").innerHTML = str;
+    </script>
+  </body>
+</html>

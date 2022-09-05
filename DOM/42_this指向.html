@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      this 关键字 代指某对象
+    -->
+
+    <button id="btn">this指向</button>
+    <button id="btn1">this指向1</button>
+  </body>
+  <script>
+    // 全局
+    console.log(this); //window
+    // 函数
+    function fn1() {
+      console.log(this); //window
+    }
+    fn1();
+    // 定时器
+    setInterval(() => {
+      console.log(this); //window
+    }, 1000); //每秒执行
+    // clearInterval();
+    setTimeout(() => {
+      console.log(this); //window
+    }, 1000); //一定事件后执行一次
+    // clearTimeout();
+
+    // 事件处理程序
+    btn.onclick = function () {
+      console.log(this); //事件源
+    };
+    // 对象的方法
+    let obj = {
+      name: "郑狗",
+      sarHi: function () {
+        console.log(this); //obj
+      },
+    };
+    obj.sarHi(); // 方法的this指向调用方法的对象
+  </script>
+</html>

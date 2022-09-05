@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box,
+      .box1 {
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      内容
+      <p>内层</p>
+    </div>
+    <div class="box1"></div>
+
+    <script>
+      // mouseover/mouseout 子元素边界会频繁出发
+      // mouseenter/mouseleave 元素内部会再次触发
+      let $box = document.querySelector(".box");
+      // 鼠标被移到某元素之上
+      $box.onmouseover = function () {
+        console.log("mouseover执行了");
+      };
+      //	鼠标从某元素移开
+      $box.onmouseout = function () {
+        console.log("mouseout执行了");
+      };
+
+      $box.onmouseenter = function () {
+        console.log("mouseenter执行了");
+      };
+
+      $box.onmouseleave = function () {
+        console.log("mouseleave执行了");
+      };
+
+      // $box.onmousemove = function () {
+      //   console.log("mousemove执行了");
+      // };
+
+      // 补充事件类型
+      var $box1 = document.querySelector(".box1");
+      // 事件类型 click  mousedown  mouseup
+      $box1.onclick = function () {
+        console.log("click");
+      };
+      // 某个鼠标按键被按下
+      $box1.onmousedown = function () {
+        console.log("onmousedown");
+        // $box1.style.backgroundColor = "rgba(0,0,0,0.5)";
+      };
+      // 某个鼠标按键被松开
+      $box1.onmouseup = function () {
+        console.log("onmouseup");
+        // $box1.style.backgroundColor = "";
+        $box1.style.backgroundColor = "rgba(0,0,0,0.5)";
+        // $box1.style.removeAttribute("style");
+        setTimeout(function () {
+          $box1.removeAttribute("style");
+        }, 50);
+      };
+    </script>
+  </body>
+</html>

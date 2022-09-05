@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // var let
+      /*
+            // 定义变量和赋值是两个语句
+            var str
+            console.log(str)//undefined[未定义]
+            str = 'Hello'
+            console.log(str)
+
+            console.log(num1)//undefined  var定义的变量都存在提升
+            var num1 = 100
+            console.log(num1)
+            var num2
+        */
+
+      var str;//undefined
+      var num1;
+      var num2;
+
+      str = "hello";
+      num1 = 100;
+
+      console.log(num1);
+
+      var num1 = "abc"; // var 定义的变量 重新定义会覆盖之前的
+      console.log(num1);
+
+      {
+        //块级作用域[scoped]
+        var b = "bbb"; //var 定义的变量,不支持块级作用域
+      }
+      console.log(b); //所以可以正常访问
+
+      // 关于提升----没有
+      // console.log(x1)
+      let x1 = 1;
+      x1 = 2;
+      console.log(x1);
+      // 关于重新定义----报错
+      // let x1 = 3
+
+      // 关于块及作用域----出作用域范围就不可以访问
+      {
+        let x2 = 100;
+        console.log(x2);
+      }
+      // console.log(x2);//x2 is not defined
+
+      // const 常量 不可以被重新赋值 没有变量提升 重新定义报错 支持块级作用域
+      // console.log(f1)
+      const f1 = "a";
+      // f1 = 'b'
+      // console.log(f1);// Assignment to constant variable.
+      // const f1 = 999
+      {
+        const f2 = "b";
+        console.log(f2);
+      }
+      // console.log(f2);
+
+      const PI = 3.1415926575897;
+    </script>
+  </body>
+</html>
