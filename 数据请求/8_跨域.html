@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // let url = 'https://www.vipmro.com/interface1/index/homeOperate?platform=2&channel=2'
+
+      let url = "http://192.168.211.135:3005/myapi/interface1/index/homeOperate?platform=2&channel=2";
+      fetch(url)
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+        });
+
+      /*
+            同源策略： http/https  安全策略
+                同协议
+                同主机
+                同端口的数据可以交互
+
+            不同源存在跨域问题  
+
+            解决跨域的问题后续nodejs阶段详解讲。。。
+
+
+
+            http://192.168.211.135:3000/a   参考接口    以下与这个接口是否同源
+            http://192.168.211.135:3000/b   不同接口    同源
+            https://192.168.211.135:3000/a  不同协议    不同源
+            http://192.168.211.110:3000/a   不同IP      不同源
+            http://192.168.211.135:3001/a   不同端口    不同源
+        */
+    </script>
+  </body>
+</html>

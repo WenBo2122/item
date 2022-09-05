@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>请求方法</title>
+  </head>
+  <body>
+    <!-- 默认请求方法 get -->
+    <!-- get、post、pot、delete -->
+    <!-- get 请求数据拼接在url中 -->
+    <!-- post 有专门的请求体 安全系数更高 -->
+    <!-- get 2048字节 根据浏览不同 可提交数据大小有限制 -->
+    <!-- post 没有限制 -->
+    <script>
+      // 接口
+      fetch("http://192.168.211.135:3000/login", {
+        method: "POST", // POST 请求必须设置 Content-Type
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "username=张三&userpwd=123456", //提交的数据的主体
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    </script>
+  </body>
+</html>
